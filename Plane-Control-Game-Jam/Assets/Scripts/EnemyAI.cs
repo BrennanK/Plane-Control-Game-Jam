@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
+    private int maxHealth;
+
     private int health;
 
     [SerializeField]
@@ -39,6 +41,10 @@ public class EnemyAI : MonoBehaviour
         {
             navAgent.SetDestination(target.transform.position);
         }
+        else
+        {
+            Debug.Log("We have no target");
+        }
     }
 
     public void setTarget(GameObject player)
@@ -63,5 +69,17 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("We collided with the player");
             // Will make call to damage the player once player health is implemented
         }
+    }
+
+    public void makeChampion()
+    {
+        health *= 5;
+        Debug.Log("We have a champion: " + gameObject.name + "with health of: " + health);
+    }
+
+    public void setHealth(float multiplierToUse)
+    {
+        health = (int)(maxHealth * multiplierToUse);
+        //Debug.Log("Current health is: " + health);
     }
 }

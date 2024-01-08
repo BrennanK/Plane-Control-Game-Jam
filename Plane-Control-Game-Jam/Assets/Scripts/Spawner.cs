@@ -13,6 +13,11 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private int spawnIntervalInSeconds;
 
+    [SerializeField]
+    private float healthMultiplier;
+
+    private int timesToMultiply;
+
     private float gameTimeInSeconds;
 
     private GameObject playerCharacter;
@@ -25,6 +30,7 @@ public class Spawner : MonoBehaviour
         {
             Debug.Log("Player Found");
         }
+        timesToMultiply = 0;
     }
 
     // Update is called once per frame
@@ -50,5 +56,21 @@ public class Spawner : MonoBehaviour
     {
         GameObject spawnedEnemy=Instantiate(enemyToSpawn, gameObject.transform.position, gameObject.transform.rotation);
         spawnedEnemy.GetComponent<EnemyAI>().setTarget(playerCharacter);
+        if (timesToMultiply != 0)
+        {
+            spawnedEnemy.GetComponent<EnemyAI>().setHealth(healthMultiplier * timesToMultiply);
+        }
+    }
+
+   public void spawnChampion()
+    {
+        GameObject spawnedEnemy = Instantiate(enemy, gameObject.transform.position, gameObject.transform.rotation);
+        spawnedEnemy.GetComponent<EnemyAI>().makeChampion();
+        spawnedEnemy.GetComponent<EnemyAI>().setTarget(playerCharacter);
+    }
+
+    public void IncrementTimesToMultiply()
+    {
+        timesToMultiply++;
     }
 }
