@@ -59,6 +59,7 @@ public class EnemyAI : MonoBehaviour
         if(health<=0)
         {
             Destroy(gameObject);
+            Game_Manager.instance.updateScore();
         }
     }
 
