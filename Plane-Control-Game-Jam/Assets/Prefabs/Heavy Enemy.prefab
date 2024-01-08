@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003359289134644779}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 61406630215960745, guid: 3a20c02430264244da8784d252832c76, type: 3}
 --- !u!23 &2003359289134644773
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -116,6 +116,8 @@ MonoBehaviour:
   AIMoveSpeed: 1.5
   attackDamage: 1
   attackInterval: 1
+  enemyDeathVFX: {fileID: 5562823657219478339, guid: ad52ac7240b9645fd835b51385e3576f,
+    type: 3}
 --- !u!195 &2003359289134644769
 NavMeshAgent:
   m_ObjectHideFlags: 0
