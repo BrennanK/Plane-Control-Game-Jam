@@ -61,3 +61,4 @@ MonoBehaviour:
   enemy: {fileID: 4337413505482290443, guid: a4525088661169e4dae899ea9f551011, type: 3}
   Text: {fileID: 0}
   spawnIntervalInSeconds: 5
+  healthMultiplier: 1.2
