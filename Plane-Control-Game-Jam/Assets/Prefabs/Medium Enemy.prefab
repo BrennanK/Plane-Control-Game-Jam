@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6900987678707d4409dfbefedca39c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 2
   AIMoveSpeed: 2.55
   attackDamage: 1
   attackInterval: 1

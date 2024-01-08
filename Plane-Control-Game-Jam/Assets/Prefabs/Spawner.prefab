@@ -57,4 +57,4 @@ MonoBehaviour:
   Text: {fileID: 0}
   spawnIntervalInSeconds: 5
   spawnRadius: 15
-  healthMultiplier: 1.2
+  healthMultiplier: 0

@@ -89,7 +89,7 @@ public class Spawner : MonoBehaviour
         spawnedEnemy.GetComponent<EnemyAI>().setTarget(playerCharacter);
         if (timesToMultiply != 0)
         {
-            spawnedEnemy.GetComponent<EnemyAI>().setHealth(healthMultiplier * timesToMultiply);
+            //spawnedEnemy.GetComponent<EnemyAI>().setHealth(healthMultiplier * timesToMultiply);
         }
     }
 

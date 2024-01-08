@@ -60,9 +60,10 @@ public class EnemyAI : MonoBehaviour
 
     public void takeDamage(int damageDealt)
     {
-        health -= damageDealt;
-
-        if(health<=0)
+        Debug.Log("Health before: "+ maxHealth);
+        maxHealth -= damageDealt;
+        Debug.Log("Health after: " + maxHealth);
+        if(maxHealth <=0)
         {
             Destroy(gameObject);
             Game_Manager.instance.updateScore();
