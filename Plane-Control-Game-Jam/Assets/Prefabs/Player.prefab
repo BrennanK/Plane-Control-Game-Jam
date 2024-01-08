@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1575170819604373479}
   - component: {fileID: 1575170819604373476}
   - component: {fileID: 1575170819604373477}
+  - component: {fileID: 1278839887329812177}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -67,6 +68,21 @@ MonoBehaviour:
   _accelerationTime: 0.1
   _decelerationTime: 0.1
   _rotationDegreesPerSec: 1500
+--- !u!114 &1278839887329812177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575170819604373482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7b865b3ef128d4888c055908a1d9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRigidbody: {fileID: 1575170819604373476}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3, type: 2}
 --- !u!1 &1575170819777867003
 GameObject:
   m_ObjectHideFlags: 0

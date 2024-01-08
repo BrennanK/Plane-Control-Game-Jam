@@ -18,6 +18,12 @@ public class EnemyAI : MonoBehaviour
 
     private GameObject target;
 
+    public static HashSet<EnemyAI> All { get; private set; } = new();
+
+    private void OnEnable() => All.Add(this);
+    private void OnDisable() => All.Remove(this); 
+    // ^ technically should do this immediately when dies to avoid being in this until the end of frame, I think.
+
     // Start is called before the first frame update
     void Start()
     {
