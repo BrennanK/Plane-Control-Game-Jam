@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5375828842977933262}
-  - component: {fileID: 5375828842977933263}
   - component: {fileID: 5375828842977933256}
   m_Layer: 0
   m_Name: Spawner
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5375828842977933263
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5375828842977933257}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5375828842977933256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b74fed06e767204f8af62271e112187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4337413505482290443, guid: a4525088661169e4dae899ea9f551011, type: 3}
+  enemies:
+  - {fileID: 5119330176253202290, guid: 2e8166d0de5668d4e9f8b41ad15ec752, type: 3}
+  - {fileID: 4337413505482290443, guid: a4525088661169e4dae899ea9f551011, type: 3}
+  - {fileID: 2003359289134644779, guid: 011eb34c6dd73d94c848d994065c624d, type: 3}
+  FodderEnemyMin: 1
+  FodderEnemyMax: 4
+  MediumEnemyMin: 5
+  MediumEnemyMax: 7
+  HeavyEnemyMin: 8
+  HeavyEnemyMax: 10
   Text: {fileID: 0}
   spawnIntervalInSeconds: 5
+  spawnRadius: 15
   healthMultiplier: 1.2
