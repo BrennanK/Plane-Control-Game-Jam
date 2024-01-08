@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
         {
             Destroy(gameObject);
             Game_Manager.instance.updateScore();
-            GameObject deathVFX = Instantiate(enemyDeathVFX);
+            GameObject deathVFX = Instantiate(enemyDeathVFX,gameObject.transform.position,gameObject.transform.rotation);
             Destroy(deathVFX, 2);
         }
     }
