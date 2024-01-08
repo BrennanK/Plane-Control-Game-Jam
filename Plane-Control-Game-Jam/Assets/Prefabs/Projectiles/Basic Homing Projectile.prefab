@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2180603764192368634}
   - component: {fileID: 6693311442610606394}
   m_Layer: 14
-  m_Name: Test Basic Homing Projectile
+  m_Name: Basic Homing Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,14 +177,14 @@ MonoBehaviour:
   _rigidbody: {fileID: 8579126246160966877}
   _settings:
     <MinSpawnDistanceFromPlayer>k__BackingField: 1
-    <MaxSpawnDistanceFromPlayer>k__BackingField: 2
+    <MaxSpawnDistanceFromPlayer>k__BackingField: 1
     <SpawnInFrontOfPlayer>k__BackingField: 1
     <MaxRandomSpawnDirectionAngleOffset>k__BackingField: 0
     <MinInitialVelocity>k__BackingField: 5
     <MaxInitialVelocity>k__BackingField: 5
     <InitialVelocityIsTowardsEnemyNotAwayFromPlayer>k__BackingField: 0
     <ForwardsAcceleration>k__BackingField: 10
-  _turningAccelerationScale: 15
+  _turningAccelerationScale: 3
   _maxTurningAcceleration: Infinity
 --- !u!114 &2180603764192368634
 MonoBehaviour:

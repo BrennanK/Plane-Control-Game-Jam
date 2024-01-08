@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1343403045931791290}
   - component: {fileID: 8076774248615294815}
   m_Layer: 14
-  m_Name: Test Straight Line Projectile
+  m_Name: Straight Line Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,11 +67,11 @@ MonoBehaviour:
   _rigidbody: {fileID: 8928557509254725789}
   _settings:
     <MinSpawnDistanceFromPlayer>k__BackingField: 1
-    <MaxSpawnDistanceFromPlayer>k__BackingField: 2
+    <MaxSpawnDistanceFromPlayer>k__BackingField: 1
     <SpawnInFrontOfPlayer>k__BackingField: 1
     <MaxRandomSpawnDirectionAngleOffset>k__BackingField: 0
-    <MinInitialVelocity>k__BackingField: 2
-    <MaxInitialVelocity>k__BackingField: 2
+    <MinInitialVelocity>k__BackingField: 1
+    <MaxInitialVelocity>k__BackingField: 1
     <InitialVelocityIsTowardsEnemyNotAwayFromPlayer>k__BackingField: 0
     <ForwardsAcceleration>k__BackingField: 0
 --- !u!114 &1343403045931791290
