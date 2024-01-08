@@ -20,7 +20,8 @@ public class EnemyAI : MonoBehaviour
 
     private float lastAttackTime = float.NegativeInfinity;
 
-    
+    [SerializeField]
+    private GameObject enemyDeathVFX;
     private NavMeshAgent navAgent;
 
     private GameObject target;
@@ -65,6 +66,8 @@ public class EnemyAI : MonoBehaviour
         {
             Destroy(gameObject);
             Game_Manager.instance.updateScore();
+            GameObject deathVFX = Instantiate(enemyDeathVFX);
+            Destroy(deathVFX, 2);
         }
     }
 
