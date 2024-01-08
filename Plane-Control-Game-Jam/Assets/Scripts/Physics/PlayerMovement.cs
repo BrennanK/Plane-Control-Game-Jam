@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _speedWithLowestSpeedStat = 5f;
     [SerializeField]
+    private float _speedBoostFractionOfBasePerSpeedStatLevel = .1f;
+    [SerializeField]
     private float _accelerationTime = .1f;
     [SerializeField]
     private float _decelerationTime = .1f;
@@ -17,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // to do: add a multiplier to the speed based on the movement speed stat.
-        float maxSpeed = _speedWithLowestSpeedStat;
+        int speedLevelups = PlayerStats.Instance.GetStat("speed").Value - 1;
+        float maxSpeed = _speedWithLowestSpeedStat * (1 + _speedBoostFractionOfBasePerSpeedStatLevel * speedLevelups);
 
         Vector2 targetVelocity = maxSpeed * MovementInputDirection();
         Vector2 currentVelocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.z); // y is up
