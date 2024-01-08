@@ -46,6 +46,10 @@ public class ProjectileMovesDirectlyToEnemy : MonoBehaviour
         acceleration += _settings.ForwardsAcceleration * rotatedVelocity.normalized;
 
         _rigidbody.AddForce(_rigidbody.mass * acceleration);
+
+        // Make the projectile point in the direction of its velocity.
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, rotatedVelocity);
+        _rigidbody.MoveRotation(rotation);
     }
 
     private Vector2 ProportionalNavigationAccel(Vector2 relPos, Vector2 relVel)
