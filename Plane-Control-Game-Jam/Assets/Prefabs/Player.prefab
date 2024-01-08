@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3848446027721438686}
+  - {fileID: 2156396739988801709}
   - {fileID: 1575170820283578438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -233,7 +234,7 @@ Transform:
   m_Children:
   - {fileID: 1575170819777867002}
   m_Father: {fileID: 1575170819604373479}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1575170820283578435
 MeshFilter:
@@ -439,7 +440,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3848446027721438686}
   - component: {fileID: 9186156707921096221}
-  - component: {fileID: 8377022186334881176}
   - component: {fileID: 3283891392132087803}
   - component: {fileID: 6138421837600636531}
   m_Layer: 10
@@ -475,18 +475,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5cf99048fd6d8c46a4764d7b9b1be39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8377022186334881176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954273996370772531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 809013dfdcb39e441b1a2b3a56eff134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3283891392132087803
@@ -656,3 +644,57 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7733116765729684942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2156396739988801709}
+  - component: {fileID: 1622631162310402146}
+  m_Layer: 10
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2156396739988801709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733116765729684942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1575170819604373479}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622631162310402146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733116765729684942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809013dfdcb39e441b1a2b3a56eff134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reloadDelayAfterDie: 4
+  _deathParticles: {fileID: 5562823657219478339, guid: b0b546f94f2134756a4b406bcfb07404,
+    type: 3}
+  _fadeToBlack: {fileID: 4138928984881976630, guid: d51245a029ec2bd41aef92ca17f3ef39,
+    type: 3}
+  _deathParticleInstancesCount: 1
+  _deathParticlesSpawnRadiusAroundPlayer: 0
+  _deathParticlesMinVerticalOffset: 0
+  _deathParticlesMaxVerticalOffset: 0
+  _randomizeParticleRotation: 0
