@@ -15,6 +15,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private int attackDamage;
 
+    [SerializeField]
+    private float attackInterval = 1;
+
+    private float lastAttackTime = float.NegativeInfinity;
+
     
     private NavMeshAgent navAgent;
 
@@ -64,10 +69,24 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject==target)
+        OnCollision(collision);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        OnCollision(collision);
+    }
+
+    private void OnCollision(Collision collision)
+    {
+        if (collision.gameObject == target)
         {
-            Debug.Log("We collided with the player");
-            // Will make call to damage the player once player health is implemented
+            if (Time.time > lastAttackTime + attackInterval)
+            {
+                Debug.Log("damage player " + attackDamage);
+                lastAttackTime = Time.time;
+                PlayerStats.Instance.GetStat("health").Change(-attackDamage);
+            }
         }
     }
 

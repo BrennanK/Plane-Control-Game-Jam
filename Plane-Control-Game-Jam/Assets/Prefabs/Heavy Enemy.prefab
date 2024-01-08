@@ -114,7 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   AIMoveSpeed: 1.5
-  attackDamage: 0
+  attackDamage: 1
+  attackInterval: 1
 --- !u!195 &2003359289134644769
 NavMeshAgent:
   m_ObjectHideFlags: 0
