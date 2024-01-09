@@ -26,6 +26,18 @@ public class EnemyAI : MonoBehaviour
 
     private GameObject target;
 
+    private Rigidbody rigidBody;
+
+    [SerializeField]
+    private float knockBackForce;
+
+    [SerializeField]
+    private float durationOFKnockback;
+
+    [SerializeField]
+    private float StillThreshold = .05f;
+    private bool inKnockBack;
+
     public static HashSet<EnemyAI> All { get; private set; } = new();
 
     private void OnEnable() => All.Add(this);
@@ -38,18 +50,21 @@ public class EnemyAI : MonoBehaviour
         //target= FindObjectOfType<PlayerMovement>().gameObject;
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         navAgent.speed = AIMoveSpeed;
+
+        rigidBody = gameObject.GetComponent<Rigidbody>();
+        inKnockBack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(target!=null)
+        if(target!=null && inKnockBack==false)
         {
             navAgent.SetDestination(target.transform.position);
         }
         else
         {
-            Debug.Log("We have no target");
+            //Debug.Log("We have no target");
         }
     }
 
@@ -58,11 +73,12 @@ public class EnemyAI : MonoBehaviour
         target = player;
     }
 
-    public void takeDamage(int damageDealt)
+    public void takeDamage(int damageDealt, Vector3 projectilePosition)
     {
-        Debug.Log("Health before: "+ maxHealth);
+        //Debug.Log("Health before: "+ maxHealth);
         maxHealth -= damageDealt;
-        Debug.Log("Health after: " + maxHealth);
+        // Debug.Log("Health after: " + maxHealth);
+        StartCoroutine(KnockBack(projectilePosition));
         if(maxHealth <=0)
         {
             Destroy(gameObject);
@@ -70,6 +86,39 @@ public class EnemyAI : MonoBehaviour
             GameObject deathVFX = Instantiate(enemyDeathVFX,gameObject.transform.position,gameObject.transform.rotation);
             Destroy(deathVFX, 2);
         }
+    }
+
+    IEnumerator KnockBack(Vector3 projPosit)
+    {
+        //Get direction for knockback
+        Vector3 directionOfKnockback = gameObject.transform.position - projPosit;
+        directionOfKnockback.y = 0;
+        directionOfKnockback = directionOfKnockback.normalized;
+        // Debug.Log(directionOfKnockback * knockBackForce);
+        // rigidBody.AddForce(directionOfKnockback * knockBackForce,ForceMode.Impulse);
+
+        yield return null;
+        navAgent.enabled = false;
+        inKnockBack = true;
+        yield return new WaitForEndOfFrame();
+        rigidBody.useGravity = true;
+        rigidBody.isKinematic = false;
+        rigidBody.AddForce(directionOfKnockback * knockBackForce,ForceMode.Impulse);
+
+        yield return new WaitForFixedUpdate();
+        yield return new WaitUntil(() => rigidBody.velocity.magnitude < StillThreshold);
+        yield return new WaitForSeconds(durationOFKnockback);
+
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        rigidBody.useGravity = false;
+        rigidBody.isKinematic = true;
+        navAgent.Warp(transform.position);
+        navAgent.enabled = true;
+        inKnockBack = false;
+        yield return null;
+
     }
 
     private void OnCollisionEnter(Collision collision)
