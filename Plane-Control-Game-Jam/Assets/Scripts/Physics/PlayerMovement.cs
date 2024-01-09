@@ -35,13 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (_rigidbody.velocity.magnitude > 0 && targetVelocity.magnitude > 0)
         {
-            float nextRotation = NextRotation();
+            float nextRotation = NextRotation(targetVelocity);
             //Debug.Log((nextRotation - _rigidbody.rotation.eulerAngles.y) / Time.fixedDeltaTime);
             _rigidbody.MoveRotation(Quaternion.Euler(0, nextRotation, 0));
         }
     }
 
-    private float NextRotation()
+    private float NextRotation(Vector2 targetMovementDirection)
     {
         // The rigidbody's velocity rotates gradually already, except it snaps rotation when you start moving
         // from 0 velocity, so gradually rotate towards the target direction.
@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
         // diagonally, you usually don't release both buttons in the same frame, so it ends up looking along
         // just 1 axis.
 
-        Quaternion movementDirection = Quaternion.FromToRotation(Vector3.forward, _rigidbody.velocity);
+        Quaternion movementDirection = Quaternion.FromToRotation(Vector3.forward
+            , new Vector3(targetMovementDirection.x, 0, targetMovementDirection.y));
 
         float movementDirectionAngle = movementDirection.eulerAngles.y;
         float currentDirectionAngle = _rigidbody.rotation.eulerAngles.y;
@@ -76,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
             direction += Vector2.left;
         if (Input.GetKey(KeyCode.D))
             direction += Vector2.right;
+        direction.x += Input.GetAxis("JoystickHorizontal");
+        direction.y += Input.GetAxis("JoystickVertical");
         return direction.normalized;
     }
 
