@@ -21,7 +21,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
             return;
 
         // to do: multiply the damage based on player stats
-        ai.takeDamage(_damageWithLowestPlayerStat);
+        ai.takeDamage(_damageWithLowestPlayerStat,gameObject.transform.position);
 
         // destroy the projectile, and prevent hitting more times (since destroy only
         // happens at end of the frame)

@@ -139,7 +139,7 @@ public class Spawner : MonoBehaviour
 
 
         Vector2 vec = Random.insideUnitCircle * spawnRadius;
-        Debug.Log(vec);
+        //Debug.Log(vec);
         Vector3 spawnOffset = new Vector3(vec.x,0,vec.y);
 
         Vector3 result = playerCharacter.transform.position + spawnOffset;
