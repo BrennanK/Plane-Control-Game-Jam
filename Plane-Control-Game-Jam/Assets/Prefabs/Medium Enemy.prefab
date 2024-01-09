@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4337413505482290443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.128823, y: 1.0000005, z: -1.5952597}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  AIMoveSpeed: 2.55
+  AIMoveSpeed: 4
   attackDamage: 1
   attackInterval: 1
   enemyDeathVFX: {fileID: 5562823657219478339, guid: ad52ac7240b9645fd835b51385e3576f,
