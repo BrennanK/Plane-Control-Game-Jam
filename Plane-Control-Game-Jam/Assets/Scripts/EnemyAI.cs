@@ -38,6 +38,9 @@ public class EnemyAI : MonoBehaviour
     private float StillThreshold = .05f;
     private bool inKnockBack;
 
+    [SerializeField]
+    private GameObject xpPrefab;
+
     public static HashSet<EnemyAI> All { get; private set; } = new();
 
     private void OnEnable() => All.Add(this);
@@ -82,6 +85,7 @@ public class EnemyAI : MonoBehaviour
         if(maxHealth <=0)
         {
             Destroy(gameObject);
+            Instantiate(xpPrefab,gameObject.transform.position,Quaternion.identity);
             Game_Manager.instance.updateScore();
             GameObject deathVFX = Instantiate(enemyDeathVFX,gameObject.transform.position,gameObject.transform.rotation);
             Destroy(deathVFX, 2);

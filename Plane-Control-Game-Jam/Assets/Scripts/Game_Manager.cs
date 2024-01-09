@@ -16,6 +16,17 @@ public class Game_Manager : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreText;
 
+    [SerializeField]
+    private TMP_Text expText;
+
+    [SerializeField]
+    private int xpForNextLevelup;
+
+    private int currentXP;
+
+    [SerializeField]
+    private float xpMultiplierPerLevelUp;
+
     private void Awake()
     {
         if(instance!= null && instance != this)
@@ -28,7 +39,10 @@ public class Game_Manager : MonoBehaviour
         }
         score = 0;
         scoreText.text = "SCORE: " + score;
+        currentXP = 0;
+        //expText.text = "XP: " + currentXP + "/" + xpForNextLevelup;
     }
+
 
     private void Update()
     {
@@ -47,5 +61,22 @@ public class Game_Manager : MonoBehaviour
     {
         score++;
         scoreText.text = "SCORE: " + score;
+    }
+
+    public void updateXP(int xpEarned)
+    {
+        currentXP += xpEarned;
+
+        if(currentXP>=xpForNextLevelup)
+        {
+            xpForNextLevelup = (int)(xpMultiplierPerLevelUp * xpForNextLevelup);
+        }
+
+       // expText.text = "XP: " + currentXP + "/" + xpForNextLevelup;
+
+        /*
+         * For Beard Retro if I remeber correctly Unity Sliders only go from 0 to 1
+         * You could use (float)(currentXp/xpForNextLevelUp) for Slider Value
+         */
     }
 }
