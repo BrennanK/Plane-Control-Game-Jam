@@ -7,6 +7,7 @@ using UnityEngine;
 public class ProjectileHitsEnemy : MonoBehaviour
 {
     [SerializeField] private int _damageWithLowestPlayerStat;
+    [SerializeField] private float _knockback;
 
     private bool _alreadyHit;
 
@@ -21,7 +22,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
             return;
 
         // to do: multiply the damage based on player stats
-        ai.takeDamage(_damageWithLowestPlayerStat);
+        ai.takeDamage(_damageWithLowestPlayerStat, transform, _knockback);
 
         // destroy the projectile, and prevent hitting more times (since destroy only
         // happens at end of the frame)

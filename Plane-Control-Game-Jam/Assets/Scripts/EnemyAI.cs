@@ -10,6 +10,13 @@ public class EnemyAI : MonoBehaviour
     private int health;
 
     [SerializeField]
+    private float receivedKnockbackScale = 1;
+    [SerializeField]
+    private float knockbackEndSpeed = .1f;
+    [SerializeField]
+    private float knockbackMaxDuration = 1f;
+
+    [SerializeField]
     private float AIMoveSpeed;
 
     [SerializeField]
@@ -23,8 +30,10 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private GameObject enemyDeathVFX;
     private NavMeshAgent navAgent;
+    private Rigidbody _rigidbody;
 
     private GameObject target;
+
 
     public static HashSet<EnemyAI> All { get; private set; } = new();
 
@@ -37,6 +46,7 @@ public class EnemyAI : MonoBehaviour
     {
         //target= FindObjectOfType<PlayerMovement>().gameObject;
         navAgent = gameObject.GetComponent<NavMeshAgent>();
+        _rigidbody = gameObject.GetComponent<Rigidbody>();
         navAgent.speed = AIMoveSpeed;
     }
 
@@ -58,8 +68,14 @@ public class EnemyAI : MonoBehaviour
         target = player;
     }
 
-    public void takeDamage(int damageDealt)
+    public void takeDamage(int damageDealt, Transform knockbackSource, float knockbackPower)
     {
+        Vector3 knockbackDirection = transform.position - knockbackSource.position;
+        knockbackDirection.y = 0;
+        knockbackDirection.Normalize();
+        Vector3 knockback = knockbackPower * receivedKnockbackScale / _rigidbody.mass * knockbackDirection;
+        StartCoroutine(ApplyKnockback(knockback));
+
         Debug.Log("Health before: "+ maxHealth);
         maxHealth -= damageDealt;
         Debug.Log("Health after: " + maxHealth);
@@ -70,6 +86,37 @@ public class EnemyAI : MonoBehaviour
             GameObject deathVFX = Instantiate(enemyDeathVFX,gameObject.transform.position,gameObject.transform.rotation);
             Destroy(deathVFX, 2);
         }
+    }
+
+    private IEnumerator ApplyKnockback(Vector3 knockback)
+    {
+        // based on https://www.youtube.com/watch?v=0NH5obeOb7I
+
+        // switch from the navMeshAgent to the rigidbody during knockback
+        navAgent.enabled = false;
+        _rigidbody.isKinematic = false;
+        _rigidbody.AddForce(knockback, ForceMode.Impulse);
+
+        float startTime = Time.time;
+
+        yield return new WaitForFixedUpdate(); // let the velocity update
+        while (Time.time < startTime + knockbackMaxDuration)
+        {
+            if (_rigidbody.velocity.magnitude < knockbackEndSpeed)
+            {
+                Debug.Log("finished speed");
+                break;
+            }
+            yield return null;
+        }
+        if (!(Time.time < startTime + knockbackMaxDuration))
+            Debug.Log("finished time");
+
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.isKinematic = true;
+        navAgent.Warp(transform.position);
+        navAgent.enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)
