@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   <FireInterval>k__BackingField: 1
   <EnemyDetectionRadius>k__BackingField: 7
-  <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: 45
+  <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: 50
   <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 1

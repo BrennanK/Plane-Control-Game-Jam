@@ -131,9 +131,9 @@ MonoBehaviour:
   _rigidbody: {fileID: 1575170819604373476}
   _speedWithLowestSpeedStat: 8
   _speedBoostFractionOfBasePerSpeedStatLevel: 0.1
-  _accelerationTime: 0.1
+  _accelerationTime: 0.13
   _decelerationTime: 0.4
-  _rotationDegreesPerSec: 500
+  _rotationDegreesPerSec: 925
 --- !u!114 &1278839887329812177
 MonoBehaviour:
   m_ObjectHideFlags: 0
