@@ -113,15 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6900987678707d4409dfbefedca39c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 1
   AIMoveSpeed: 8
   attackDamage: 1
   attackInterval: 1
   enemyDeathVFX: {fileID: 5562823657219478339, guid: ad52ac7240b9645fd835b51385e3576f,
     type: 3}
   knockBackForce: 5
-  durationOFKnockback: 1
+  durationOFKnockback: 0.5
   StillThreshold: 0.05
+  xpPrefab: {fileID: 106881574134617501, guid: 70adcf1f923011c418714dcdcb3ff081, type: 3}
 --- !u!195 &5119330176253202296
 NavMeshAgent:
   m_ObjectHideFlags: 0
