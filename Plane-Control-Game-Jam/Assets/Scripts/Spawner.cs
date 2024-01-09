@@ -42,6 +42,10 @@ public class Spawner : MonoBehaviour
     private float gameTimeInSeconds;
 
     private GameObject playerCharacter;
+
+    [SerializeField]
+
+    private GameObject planeGround;
     
     class numRange
     {
@@ -125,10 +129,25 @@ public class Spawner : MonoBehaviour
 
     public Vector3 decideWhereToSpawn()
     {
+
+        float minX = planeGround.transform.position.x-planeGround.transform.localScale.x * 5;
+        float maxX = planeGround.transform.position.x + planeGround.transform.localScale.x * 5;
+
+        float minZ = planeGround.transform.position.z - planeGround.transform.localScale.z * 5;
+        float maxZ = planeGround.transform.position.z + planeGround.transform.localScale.z * 5;
+
+
+
         Vector2 vec = Random.insideUnitCircle * spawnRadius;
         Debug.Log(vec);
         Vector3 spawnOffset = new Vector3(vec.x,0,vec.y);
-        return playerCharacter.transform.position + spawnOffset;
+
+        Vector3 result = playerCharacter.transform.position + spawnOffset;
+
+        result.x = Mathf.Clamp(result.x, minX, maxX);
+        result.z = Mathf.Clamp(result.z, minZ, maxZ);
+
+        return result;
     }
 
     public void IncrementTimesToMultiply()
