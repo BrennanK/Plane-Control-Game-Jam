@@ -126,19 +126,11 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        OnCollision(collision);
-    }
+    
 
-    private void OnCollisionStay(Collision collision)
+    public void OnHurtboxCollision(Collider other)
     {
-        OnCollision(collision);
-    }
-
-    private void OnCollision(Collision collision)
-    {
-        if (collision.gameObject == target)
+        if (other.gameObject == PlayerMovement.Hitbox)
         {
             if (Time.time > lastAttackTime + attackInterval)
             {
