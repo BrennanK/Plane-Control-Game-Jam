@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _hitbox;
+    [SerializeField]
     private Rigidbody _rigidbody;
     [SerializeField]
     private float _speedWithLowestSpeedStat = 5f;
@@ -16,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private float _decelerationTime = .1f;
     [SerializeField]
     private float _rotationDegreesPerSec = 100;
+
+    public static GameObject Hitbox { get; private set; }
+
+    private void Awake()
+    {
+        Hitbox = _hitbox;
+    }
 
     private void FixedUpdate()
     {

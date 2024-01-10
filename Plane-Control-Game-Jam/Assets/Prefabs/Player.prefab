@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97a458a92ad2c74a83532b0067e85b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitbox: {fileID: 382432562359851727}
   _rigidbody: {fileID: 1575170819604373476}
   _speedWithLowestSpeedStat: 8
   _speedBoostFractionOfBasePerSpeedStatLevel: 0.1
