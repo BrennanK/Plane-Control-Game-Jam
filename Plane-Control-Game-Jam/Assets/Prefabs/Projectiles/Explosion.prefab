@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 1478536610107749534}
   - component: {fileID: 1478536610107749529}
   - component: {fileID: 1478536610107749535}
+  - component: {fileID: 7704206919346595993}
+  - component: {fileID: 5167563660345014992}
+  - component: {fileID: 5192524449586856492}
   m_Layer: 14
   m_Name: Explosion
   m_TagString: Untagged
@@ -28,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1478536610107749531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.93, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1478536611755609741}
@@ -83,6 +86,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _comment: 'to do: make the animation look good once we have the background'
+--- !u!114 &7704206919346595993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478536610107749531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9289764e514eef24baecaace1ce3412a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroy: 1
+--- !u!114 &5167563660345014992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478536610107749531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaf095b57a317a4984a8c13b8457c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minDistanceFromPlayer: 1
+  _maxDistanceFromPlayer: 5
+--- !u!114 &5192524449586856492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478536610107749531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8066472d172ae041b749a111716d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitMultipleEnemies: 1
+  _damageWithLowestPlayerStat: 1
+  _originalDamage: 1
 --- !u!1 &1478536610788348334
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +140,7 @@ GameObject:
   - component: {fileID: 1478536610788348333}
   - component: {fileID: 1478536610788348332}
   - component: {fileID: 1478536610788348322}
+  - component: {fileID: 8791027089301261103}
   m_Layer: 14
   m_Name: Cylinder
   m_TagString: Untagged
@@ -175,12 +221,24 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478536610788348334}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.5
+  m_Radius: 0.85
   m_Height: 99.660614
   m_Direction: 1
   m_Center: {x: 0, y: -8.617409, z: 0}
+--- !u!114 &8791027089301261103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478536610788348334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4966295b12cec024a8efc86d91de3dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478536611755609740
 GameObject:
   m_ObjectHideFlags: 0
