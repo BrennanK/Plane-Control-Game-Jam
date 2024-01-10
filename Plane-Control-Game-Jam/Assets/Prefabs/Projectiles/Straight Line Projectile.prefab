@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageWithLowestPlayerStat: 1
+  _originalDamage: 1
 --- !u!114 &8076774248615294815
 MonoBehaviour:
   m_ObjectHideFlags: 0
