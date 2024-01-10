@@ -6,26 +6,33 @@ using UnityEngine;
 
 public class ProjectileHitsEnemy : MonoBehaviour
 {
+    [SerializeField] private bool _hitMultipleEnemies;
     [SerializeField] private int _damageWithLowestPlayerStat;
 
-    private bool _alreadyHit;
+    private HashSet<EnemyAI> _alreadyHit = new();
 
     public void DetectCollision(Collider other)
     {
-        if (_alreadyHit)
+        if (!_hitMultipleEnemies && _alreadyHit.Count > 0)
             return;
 
         // to do: get an enemy health script or something, and deal damage instead.
         EnemyAI ai = other.GetComponent<EnemyAI>();
         if (ai == null)
             return;
+        if (_alreadyHit.Contains(ai))
+            return;
 
+        Hit(ai);
+
+        _alreadyHit.Add(ai);
+        if (!_hitMultipleEnemies)
+            Destroy(gameObject);
+    }
+
+    private void Hit(EnemyAI ai)
+    {
         // to do: multiply the damage based on player stats
         ai.takeDamage(_damageWithLowestPlayerStat);
-
-        // destroy the projectile, and prevent hitting more times (since destroy only
-        // happens at end of the frame)
-        _alreadyHit = true;
-        Destroy(gameObject);
     }
 }
