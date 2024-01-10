@@ -8,6 +8,7 @@ public class PlayerWeapon
     private Rigidbody _playerRigidbody;
     private PlayerWeaponSettings _settings;
     private float _lastFireTime = float.NegativeInfinity;
+    private bool _stopAfterFiredOnce;
 
     public PlayerWeapon(Rigidbody playerRigidbody, PlayerWeaponSettings settings)
     {
@@ -16,20 +17,30 @@ public class PlayerWeapon
         _settings = settings;
     }
 
-    public void Tick()
+    public void Tick(bool onlyFireOnce)
     {
+        if (_stopAfterFiredOnce)
+            return;
+
         if (Time.time > _lastFireTime + _settings.FireInterval)
         {
-            if (TryFire() || !_settings.WaitForEnemyBeforeFinishFireInterval)
+            bool fired = TryFire();
+            if (fired && onlyFireOnce)
+                _stopAfterFiredOnce = true;
+            if (fired || !_settings.WaitForEnemyBeforeFinishFireInterval)
                 _lastFireTime = Time.time;
         }
     }
 
     private bool TryFire()
     {
-        Transform target = FindTarget();
-        if (target == null)
-            return false;
+        Transform target = null;
+        if (_settings.RequireTarget)
+        {
+            target = FindTarget();
+            if (target == null)
+                return false;
+        }
 
         GameObject projectile = Object.Instantiate(_settings.ProjectilePrefab);
 
@@ -40,6 +51,10 @@ public class PlayerWeapon
         else if (projectile.TryGetComponent(out ProjectileMovesDirectlyToEnemy basicHoming))
         {
             basicHoming.Initialize(_playerRigidbody, _player, target, target.GetComponent<UnityEngine.AI.NavMeshAgent>());
+        }
+        else if (projectile.TryGetComponent(out ProjectileMovesLikeBoomerang boomerang))
+        {
+            boomerang.Initialize(_playerRigidbody, target);
         }
         else
         {

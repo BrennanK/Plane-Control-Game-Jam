@@ -149,6 +149,10 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 1575170819604373476}
   _initialWeapons:
   - {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3, type: 2}
+  - {fileID: 11400000, guid: 95a863488c5a9464189f132eab14fc31, type: 2}
+  - {fileID: 11400000, guid: 6595662df8b38cb46bf92d414e8a0c48, type: 2}
+  _onlyFireOnce: 0
+  _startTime: 0
 --- !u!1 &1575170819777867003
 GameObject:
   m_ObjectHideFlags: 0

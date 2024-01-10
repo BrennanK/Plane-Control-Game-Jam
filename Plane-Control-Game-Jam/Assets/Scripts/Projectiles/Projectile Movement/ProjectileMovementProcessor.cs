@@ -64,7 +64,7 @@ public static class ProjectileMovementProcessor
         }
     }
 
-    private static Quaternion InitialRotation(Vector3 initialVelocity)
+    public static Quaternion InitialRotation(Vector3 initialVelocity)
     {
         return Quaternion.FromToRotation(Vector3.forward, initialVelocity);
     }
@@ -78,7 +78,7 @@ public static class ProjectileMovementProcessor
         return direction.normalized;
     }
 
-    private static Vector3 DirectionInFront(Transform inFrontOf)
+    public static Vector3 DirectionInFront(Transform inFrontOf)
     {
         Vector3 direction = inFrontOf.forward;
         direction.y = 0;
@@ -94,4 +94,12 @@ public static class ProjectileMovementProcessor
         return new Vector3(x, v.y, z);
     }
 
+    public static Vector2 RotateVector(Vector2 v, float radians)
+    {
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
+        float x = cos * v.x - sin * v.y;
+        float y = sin * v.x + cos * v.y;
+        return new Vector2(x, y);
+    }
 }
