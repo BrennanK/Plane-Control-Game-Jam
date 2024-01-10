@@ -7,8 +7,10 @@ using UnityEngine;
 public class ProjectileHitsEnemy : MonoBehaviour
 {
     [SerializeField] private bool _hitMultipleEnemies;
+    [SerializeField] private bool _canHitSameEnemyMultipleTimes;
     [SerializeField] private int _damageWithLowestPlayerStat;
     [SerializeField] private int _originalDamage;
+    [SerializeField] private float _knockbackScale = 1f;
     private HashSet<EnemyAI> _alreadyHit = new();
 
     public void DetectCollision(Collider other)
@@ -20,7 +22,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
         EnemyAI ai = other.GetComponent<EnemyAI>();
         if (ai == null)
             return;
-        if (_alreadyHit.Contains(ai))
+        if (!_canHitSameEnemyMultipleTimes && _alreadyHit.Contains(ai))
             return;
 
         Hit(ai);
@@ -32,7 +34,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
     private void Hit(EnemyAI ai)
     {
         // to do: multiply the damage based on player stats
-        ai.takeDamage(_damageWithLowestPlayerStat, transform.position);
+        ai.takeDamage(_damageWithLowestPlayerStat, _knockbackScale, transform.position);
     }
     public int getDamageDealt()
     {

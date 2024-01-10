@@ -76,12 +76,13 @@ public class EnemyAI : MonoBehaviour
         target = player;
     }
 
-    public void takeDamage(int damageDealt, Vector3 projectilePosition)
+    public void takeDamage(int damageDealt, float hitterKnockbackScale, Vector3 projectilePosition)
     {
         //Debug.Log("Health before: "+ maxHealth);
         maxHealth -= damageDealt;
         // Debug.Log("Health after: " + maxHealth);
-        StartCoroutine(KnockBack(projectilePosition));
+        if (hitterKnockbackScale != 0)
+            StartCoroutine(KnockBack(hitterKnockbackScale, projectilePosition));
         if(maxHealth <=0)
         {
             Destroy(gameObject);
@@ -92,7 +93,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    IEnumerator KnockBack(Vector3 projPosit)
+    IEnumerator KnockBack(float hitterKnockbackScale, Vector3 projPosit)
     {
         //Get direction for knockback
         Vector3 directionOfKnockback = gameObject.transform.position - projPosit;
@@ -107,7 +108,7 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForEndOfFrame();
         rigidBody.useGravity = true;
         rigidBody.isKinematic = false;
-        rigidBody.AddForce(directionOfKnockback * knockBackForce,ForceMode.Impulse);
+        rigidBody.AddForce(directionOfKnockback * knockBackForce * hitterKnockbackScale, ForceMode.Impulse);
 
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rigidBody.velocity.magnitude < StillThreshold);
