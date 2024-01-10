@@ -29,4 +29,9 @@ public class PlayerWeapons : MonoBehaviour
     {
         _weapons.Add(new PlayerWeapon(_playerRigidbody, weaponSettings));
     }
+
+    public List<PlayerWeapon> getCurrentWeaponsOnPlayer()
+    {
+        return _weapons;
+    }
 }

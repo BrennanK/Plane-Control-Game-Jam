@@ -70,6 +70,8 @@ public class Game_Manager : MonoBehaviour
         if(currentXP>=xpForNextLevelup)
         {
             xpForNextLevelup = (int)(xpMultiplierPerLevelUp * xpForNextLevelup);
+            if(Upgrade_Manager.instance!=null)
+            Upgrade_Manager.instance.activateUpgradeMenu();
         }
 
        // expText.text = "XP: " + currentXP + "/" + xpForNextLevelup;
