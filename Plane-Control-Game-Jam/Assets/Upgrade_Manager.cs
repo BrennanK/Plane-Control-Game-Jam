@@ -13,23 +13,25 @@ public class Upgrade_Manager : MonoBehaviour
     
     private OneStat playerHealth;
     private OneStat playerSpeed;
-    [SerializeField]
-    private TMP_Text currentPlayerHealthValue;
+   // [SerializeField]
+   // private TMP_Text currentPlayerHealthValue;
 
-    [SerializeField]
-    private TMP_Text currentPlayerSpeed;
+    //[SerializeField]
+   // private TMP_Text currentPlayerSpeed;
 
-    [SerializeField]
-    private TMP_Text curNumWeapons;
+   // [SerializeField]
+   // private TMP_Text curNumWeapons;
 
     // Weapons Possible for the Player to Have
     [SerializeField]
     private List<PlayerWeaponSettings> weapons;
 
+    private List<PlayerWeaponSettings> weaponsToAttach;
+
     private List<PlayerWeapon> attachedWeapons;
 
-    [SerializeField]
-    private TMP_Text currentWeaponDamage;
+   // [SerializeField]
+   // private TMP_Text currentWeaponDamage;
 
     [SerializeField]
     private int healthUpgradeAmount;
@@ -43,6 +45,9 @@ public class Upgrade_Manager : MonoBehaviour
     [SerializeField]
     private GameObject UpgradeMenu;
 
+    [SerializeField]
+    private GameObject addWeaponButton;
+
     void Awake()
     {
         if(instance!=null && instance!=this)
@@ -55,8 +60,8 @@ public class Upgrade_Manager : MonoBehaviour
         }
 
         playerHealth = player.GetComponentInChildren<OneStat>();
-
-        currentPlayerHealthValue.text = "Player Health: " + playerHealth.Value;
+        weaponsToAttach = weapons;
+       // currentPlayerHealthValue.text = "Player Health: " + playerHealth.Value;
         // playerHealth.Change(4);
         // currentPlayerHealthValue.text += playerHealth.Value;
 
@@ -70,7 +75,7 @@ public class Upgrade_Manager : MonoBehaviour
 
         attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
 
-        //curNumWeapons.text = "Number of Weapons on Player: " + attachedWeapons.Count;
+       // curNumWeapons.text = "Number of Weapons on Player: " + attachedWeapons.Count;
 
         resetWeaponDamage();
     }
@@ -86,14 +91,14 @@ public class Upgrade_Manager : MonoBehaviour
    public void upgradeHealth()
     {
         playerHealth.Change(healthUpgradeAmount);
-        currentPlayerHealthValue.text ="Player Health: "+ playerHealth.Value;
+      //  currentPlayerHealthValue.text ="Player Health: "+ playerHealth.Value;
         deactivateUpgradeMenu();
     }
 
     public void upgradePlayerSpeed()
     {
         playerSpeed.Change(speedUpgradeAmount);
-        currentPlayerSpeed.text = "Player Speed: " + playerSpeed.Value;
+      //  currentPlayerSpeed.text = "Player Speed: " + playerSpeed.Value;
         deactivateUpgradeMenu();
     }
 
@@ -107,9 +112,60 @@ public class Upgrade_Manager : MonoBehaviour
         deactivateUpgradeMenu();
     }
 
+    public void addWeapon()
+    {
+        
+        if(weaponsToAttach.Count==0)
+        {
+            deactivateUpgradeMenu();
+            return;
+        }
+
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
+
+        for(int i=0;i<weaponsToAttach.Count;i++)
+        {
+            for(int j=0;j<attachedWeapons.Count;j++)
+            {
+                if(weaponsToAttach[i].ProjectilePrefab == attachedWeapons[j].getSettings().ProjectilePrefab)
+                {
+                    weaponsToAttach.Remove(attachedWeapons[j].getSettings());
+                   // Debug.Log("Weapons left"+weaponsToAttach.Count);
+                }
+            }
+        }
+       
+        if (weaponsToAttach.Count!=0)
+        {
+            player.GetComponentInChildren<PlayerWeapons>().AddWeapon(weaponsToAttach[Random.Range(0,weaponsToAttach.Count)]);
+            //weaponsToAttach = weapons;
+        }
+
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
+
+        for (int i = 0; i < weaponsToAttach.Count; i++)
+        {
+            for (int j = 0; j < attachedWeapons.Count; j++)
+            {
+                if (weaponsToAttach[i].ProjectilePrefab == attachedWeapons[j].getSettings().ProjectilePrefab)
+                {
+                    weaponsToAttach.Remove(attachedWeapons[j].getSettings());
+                    // Debug.Log("Weapons left"+weaponsToAttach.Count);
+                }
+            }
+        }
+        Debug.Log("Weapons left" + weaponsToAttach.Count);
+       // curNumWeapons.text = "Number of Weapons on Player: " + attachedWeapons.Count;
+        deactivateUpgradeMenu();
+    }
+
     public void activateUpgradeMenu()
     {
         Time.timeScale = 0;
+        if (weaponsToAttach.Count == 0)
+        {
+            addWeaponButton.SetActive(false);
+        }
         UpgradeMenu.SetActive(true);
     }
 
