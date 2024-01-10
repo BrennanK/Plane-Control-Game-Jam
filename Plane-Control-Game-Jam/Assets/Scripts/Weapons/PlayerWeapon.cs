@@ -9,12 +9,14 @@ public class PlayerWeapon
     private PlayerWeaponSettings _settings;
     private float _lastFireTime = float.NegativeInfinity;
     private bool _stopAfterFiredOnce;
+    private float _addToFireInterval;
 
     public PlayerWeapon(Rigidbody playerRigidbody, PlayerWeaponSettings settings)
     {
         _player = playerRigidbody.transform;
         _playerRigidbody = playerRigidbody;
         _settings = settings;
+        RandomizeAddToInterval();
     }
 
     public void Tick(bool onlyFireOnce)
@@ -22,14 +24,22 @@ public class PlayerWeapon
         if (_stopAfterFiredOnce)
             return;
 
-        if (Time.time > _lastFireTime + _settings.FireInterval)
+        if (Time.time > _lastFireTime + _settings.FireInterval + _addToFireInterval)
         {
             bool fired = TryFire();
             if (fired && onlyFireOnce)
                 _stopAfterFiredOnce = true;
             if (fired || !_settings.WaitForEnemyBeforeFinishFireInterval)
+            {
                 _lastFireTime = Time.time;
+                RandomizeAddToInterval();
+            }
         }
+    }
+
+    private void RandomizeAddToInterval()
+    {
+        _addToFireInterval = Random.Range(0, _settings.MaxRandomAdditionToFireInterval);
     }
 
     private bool TryFire()
@@ -55,6 +65,10 @@ public class PlayerWeapon
         else if (projectile.TryGetComponent(out ProjectileMovesLikeBoomerang boomerang))
         {
             boomerang.Initialize(_playerRigidbody, target);
+        }
+        else if (projectile.TryGetComponent(out ExplosionPositionInitializer explosion))
+        {
+            explosion.Initialize(_player);
         }
         else
         {
