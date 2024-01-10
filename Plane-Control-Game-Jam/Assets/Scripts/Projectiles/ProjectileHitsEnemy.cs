@@ -8,7 +8,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
 {
     [SerializeField] private bool _hitMultipleEnemies;
     [SerializeField] private int _damageWithLowestPlayerStat;
-
+    [SerializeField] private int _originalDamage;
     private HashSet<EnemyAI> _alreadyHit = new();
 
     public void DetectCollision(Collider other)
@@ -29,10 +29,24 @@ public class ProjectileHitsEnemy : MonoBehaviour
         if (!_hitMultipleEnemies)
             Destroy(gameObject);
     }
-
     private void Hit(EnemyAI ai)
     {
         // to do: multiply the damage based on player stats
         ai.takeDamage(_damageWithLowestPlayerStat, transform.position);
     }
+    public int getDamageDealt()
+    {
+        return _damageWithLowestPlayerStat;
+    }
+
+    public void setDamageDealt(int amountToAdd)
+    {
+        _damageWithLowestPlayerStat = amountToAdd;
+    }
+
+    public void resetToOriginalDamage()
+    {
+        _damageWithLowestPlayerStat = _originalDamage;
+    }
 }
+

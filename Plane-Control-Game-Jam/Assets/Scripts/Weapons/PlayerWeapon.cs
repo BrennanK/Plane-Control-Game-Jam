@@ -96,4 +96,9 @@ public class PlayerWeapon
 
         return result;
     }
+
+    public PlayerWeaponSettings getSettings()
+    {
+        return _settings;
+    }
 }

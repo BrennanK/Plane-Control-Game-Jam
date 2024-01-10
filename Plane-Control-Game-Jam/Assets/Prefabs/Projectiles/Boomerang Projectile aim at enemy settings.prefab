@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitMultipleEnemies: 1
   _damageWithLowestPlayerStat: 1
+  _originalDamage: 1
 --- !u!114 &5403198412230093321
 MonoBehaviour:
   m_ObjectHideFlags: 0
