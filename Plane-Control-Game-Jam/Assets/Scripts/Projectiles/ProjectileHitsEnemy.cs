@@ -33,6 +33,6 @@ public class ProjectileHitsEnemy : MonoBehaviour
     private void Hit(EnemyAI ai)
     {
         // to do: multiply the damage based on player stats
-        ai.takeDamage(_damageWithLowestPlayerStat);
+        ai.takeDamage(_damageWithLowestPlayerStat, transform.position);
     }
 }
