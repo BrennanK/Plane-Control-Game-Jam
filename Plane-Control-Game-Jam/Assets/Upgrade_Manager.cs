@@ -90,7 +90,7 @@ public class Upgrade_Manager : MonoBehaviour
 
    public void upgradeHealth()
     {
-        playerHealth.Change(healthUpgradeAmount);
+        playerHealth.IncreaseMaxAndValue(healthUpgradeAmount);
        // currentPlayerHealthValue.text ="Player Health: "+ playerHealth.Value;
         deactivateUpgradeMenu();
     }
