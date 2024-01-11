@@ -120,6 +120,8 @@ MonoBehaviour:
   attackInterval: 1
   enemyDeathVFX: {fileID: 5562823657219478339, guid: ad52ac7240b9645fd835b51385e3576f,
     type: 3}
+  enemyDeathSound: {fileID: 2539751384694535288, guid: 63940043f3b0a6f408a8d8e1e62d8dd4,
+    type: 3}
   knockBackForce: 5
   durationOFKnockback: 0.5
   StillThreshold: 0.05

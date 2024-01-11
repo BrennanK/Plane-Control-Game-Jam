@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     private GameObject enemyDeathVFX;
+    [SerializeField]
+    private GameObject enemyDeathSound;
     private NavMeshAgent navAgent;
 
     private GameObject target;
@@ -90,6 +92,7 @@ public class EnemyAI : MonoBehaviour
             Game_Manager.instance.updateScore();
             GameObject deathVFX = Instantiate(enemyDeathVFX,gameObject.transform.position,gameObject.transform.rotation);
             Destroy(deathVFX, 2);
+            Instantiate(enemyDeathSound, transform.position, Quaternion.identity);
         }
     }
 
