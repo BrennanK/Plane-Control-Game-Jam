@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitbox: {fileID: 382432562359851727}
   _rigidbody: {fileID: 1575170819604373476}
-  _speedWithLowestSpeedStat: 8
+  _speedWithLowestSpeedStat: 6
   _speedBoostFractionOfBasePerSpeedStatLevel: 0.1
   _accelerationTime: 0.13
   _decelerationTime: 0.4
@@ -197,10 +197,6 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 1575170819604373476}
   _initialWeapons:
   - {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3, type: 2}
-  - {fileID: 11400000, guid: 95a863488c5a9464189f132eab14fc31, type: 2}
-  - {fileID: 11400000, guid: 6595662df8b38cb46bf92d414e8a0c48, type: 2}
-  - {fileID: 11400000, guid: 25be991ae71858849b63351cea0791d8, type: 2}
-  - {fileID: 11400000, guid: 6a55145f961d7c84a8662c4fe26d1cd0, type: 2}
   _onlyFireOnce: 0
   _startTime: 0
 --- !u!1 &4954273996370772531
