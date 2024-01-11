@@ -22,11 +22,8 @@ public class RandomizeAudioSource : MonoBehaviour
         }
 
         _audioSource.clip = _bags[_clips].Next();
-        Debug.Log(_audioSource.clip == null);
         _audioSource.pitch = Random.Range(_minPitch, _maxPitch);
         _audioSource.volume *= Random.Range(_minVolumeMult, _maxVolumeMult);
-        Debug.Log("volume: " + _audioSource.volume);
-
         _audioSource.gameObject.SetActive(true);
     }
 }
