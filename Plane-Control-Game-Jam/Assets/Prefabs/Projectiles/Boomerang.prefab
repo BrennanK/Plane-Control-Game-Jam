@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 5403198412230093321}
   - component: {fileID: 4226958802494186682}
   m_Layer: 14
-  m_Name: Boomerang Projectile aim at enemy settings
+  m_Name: Boomerang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
