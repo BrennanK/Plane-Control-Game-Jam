@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  AIMoveSpeed: 8
+  AIMoveSpeed: 5.75
   attackDamage: 1
   attackInterval: 1
   enemyDeathVFX: {fileID: 5562823657219478339, guid: ad52ac7240b9645fd835b51385e3576f,

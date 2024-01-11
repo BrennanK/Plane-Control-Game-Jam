@@ -122,8 +122,8 @@ MonoBehaviour:
     type: 3}
   enemyDeathSound: {fileID: 2539751384694535288, guid: 63940043f3b0a6f408a8d8e1e62d8dd4,
     type: 3}
-  knockBackForce: 5
-  durationOFKnockback: 0.5
+  knockBackForce: 2
+  durationOFKnockback: 0.3
   StillThreshold: 0.05
   xpPrefab: {fileID: 106881574134617501, guid: 70adcf1f923011c418714dcdcb3ff081, type: 3}
 --- !u!195 &2003359289134644769
