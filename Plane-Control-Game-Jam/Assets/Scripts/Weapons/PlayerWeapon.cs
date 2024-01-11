@@ -54,11 +54,7 @@ public class PlayerWeapon
 
         GameObject projectile = Object.Instantiate(_settings.ProjectilePrefab);
 
-        if (projectile.TryGetComponent(out ProjectileMovesInStraightLine straightLine))
-        {
-            straightLine.Initialize(_playerRigidbody, _player, target.transform);
-        }
-        else if (projectile.TryGetComponent(out ProjectileMovesDirectlyToEnemy basicHoming))
+        if (projectile.TryGetComponent(out ProjectileMovesDirectlyToEnemy basicHoming))
         {
             basicHoming.Initialize(_playerRigidbody, _player, target, target.GetComponent<UnityEngine.AI.NavMeshAgent>());
         }
