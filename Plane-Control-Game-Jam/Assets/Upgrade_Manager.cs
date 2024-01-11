@@ -30,8 +30,8 @@ public class Upgrade_Manager : MonoBehaviour
 
     private List<PlayerWeapon> attachedWeapons;
 
-   // [SerializeField]
-   // private TMP_Text currentWeaponDamage;
+    // [SerializeField]
+    // private TMP_Text currentWeaponDamage;
 
     [SerializeField]
     private int healthUpgradeAmount;
@@ -46,8 +46,29 @@ public class Upgrade_Manager : MonoBehaviour
     private GameObject UpgradeMenu;
 
     [SerializeField]
-    private GameObject addWeaponButton;
+    private GameObject addWeaponPanel;
 
+    private PlayerWeaponSettings chosenWeapon;
+
+    public int getHealthUpgrade()
+    {
+        return healthUpgradeAmount;
+    }
+
+    public int getSpeedUpgrade()
+    {
+        return speedUpgradeAmount;
+    }
+
+    public int getWeaponDamgeUpgrade()
+    {
+        return weaponDamageUpgradeAmount;
+    }
+
+    public string getWeaponName()
+    {
+        return chosenWeapon.ProjectilePrefab.name;
+    }
     void Awake()
     {
         if(instance!=null && instance!=this)
@@ -113,7 +134,7 @@ public class Upgrade_Manager : MonoBehaviour
         deactivateUpgradeMenu();
     }
 
-    public void addWeapon()
+    public void chooseWeapon()
     {
         
         if(weaponsToAttach.Count==0)
@@ -138,8 +159,9 @@ public class Upgrade_Manager : MonoBehaviour
        
         if (weaponsToAttach.Count!=0)
         {
-            player.GetComponentInChildren<PlayerWeapons>().AddWeapon(weaponsToAttach[Random.Range(0,weaponsToAttach.Count)]);
+            //player.GetComponentInChildren<PlayerWeapons>().AddWeapon(weaponsToAttach[Random.Range(0,weaponsToAttach.Count)]);
             //weaponsToAttach = weapons;
+            chosenWeapon = weaponsToAttach[Random.Range(0, weaponsToAttach.Count)];
         }
 
         attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
@@ -160,12 +182,19 @@ public class Upgrade_Manager : MonoBehaviour
         deactivateUpgradeMenu();
     }
 
+    public void addWeapon()
+    {
+        player.GetComponentInChildren<PlayerWeapons>().AddWeapon(chosenWeapon);
+        deactivateUpgradeMenu();
+    }
+
     public void activateUpgradeMenu()
     {
+        chooseWeapon();
         Time.timeScale = 0;
         if (weaponsToAttach.Count == 0)
         {
-            addWeaponButton.SetActive(false);
+            addWeaponPanel.SetActive(false);
         }
         UpgradeMenu.SetActive(true);
     }
