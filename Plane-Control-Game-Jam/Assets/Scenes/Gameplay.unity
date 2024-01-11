@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.30692166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3212,12 +3212,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &520567450 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2100252414331798568, guid: d85d35fdfb7278046909c75a525b2291,
-    type: 3}
-  m_PrefabInstance: {fileID: 1344589217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &523156885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,6 +4560,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &820311359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3512421839514018521, guid: d85d35fdfb7278046909c75a525b2291,
+    type: 3}
+  m_PrefabInstance: {fileID: 1344589217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &831290840
 GameObject:
   m_ObjectHideFlags: 3
@@ -4990,9 +4990,14 @@ PrefabInstance:
       objectReference: {fileID: 2069125146}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
+      propertyPath: addWeaponPanel
+      value: 
+      objectReference: {fileID: 820311359}
+    - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
       propertyPath: addWeaponButton
       value: 
-      objectReference: {fileID: 520567450}
+      objectReference: {fileID: 0}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
       propertyPath: weapons.Array.size
