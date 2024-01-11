@@ -13,8 +13,8 @@ public class Upgrade_Manager : MonoBehaviour
     
     private OneStat playerHealth;
     private OneStat playerSpeed;
-   // [SerializeField]
-   // private TMP_Text currentPlayerHealthValue;
+   //[SerializeField]
+  // private TMP_Text currentPlayerHealthValue;
 
     //[SerializeField]
    // private TMP_Text currentPlayerSpeed;
@@ -91,7 +91,7 @@ public class Upgrade_Manager : MonoBehaviour
    public void upgradeHealth()
     {
         playerHealth.Change(healthUpgradeAmount);
-      //  currentPlayerHealthValue.text ="Player Health: "+ playerHealth.Value;
+       // currentPlayerHealthValue.text ="Player Health: "+ playerHealth.Value;
         deactivateUpgradeMenu();
     }
 
@@ -107,6 +107,7 @@ public class Upgrade_Manager : MonoBehaviour
 
     public void upgradeWeaponAtRandom()
     {
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
         GameObject projectile = attachedWeapons[Random.Range(0, attachedWeapons.Count)].getSettings().ProjectilePrefab;
         projectile.GetComponent<ProjectileHitsEnemy>().setDamageDealt(projectile.GetComponent<ProjectileHitsEnemy>().getDamageDealt() + weaponDamageUpgradeAmount);
         deactivateUpgradeMenu();
