@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class DestroyGameobjectWhenAnimatedBoolIsFalse : MonoBehaviour
 {
+    [SerializeField] private GameObject _toDestroy;
     [SerializeField] private bool _dontDestroy = true;
 
     private void LateUpdate()
     {
         if (!_dontDestroy)
         {
-            Destroy(gameObject);
+            if (_toDestroy == null)
+                Destroy(gameObject);
+            else
+                Destroy(_toDestroy);
         }
     }
 }
