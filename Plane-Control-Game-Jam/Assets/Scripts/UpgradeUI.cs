@@ -9,6 +9,9 @@ public class UpgradeUI : MonoBehaviour
     private List<GameObject> panel;
     // Start is called before the first frame update
 
+    [SerializeField]
+    private List<Sprite> weaponIcons;
+
     private void Start()
     {
         //GameObject newButton = Instantiate(buttons[0],buttons[1].transform);
@@ -27,6 +30,20 @@ public class UpgradeUI : MonoBehaviour
     private void OnEnable()
     {
         panel[3].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getWeaponName();
+
+        if(Upgrade_Manager.instance.getWeaponName()=="Boomerang")
+        {
+            panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[0];
+        }
+        if(Upgrade_Manager.instance.getWeaponName()=="Puddle")
+        {
+            panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[1];
+        }
+        if(Upgrade_Manager.instance.getWeaponName()=="Explosion")
+        {
+            panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[2];
+        }
+
     }
     public void HealthUpgrade()
     {
