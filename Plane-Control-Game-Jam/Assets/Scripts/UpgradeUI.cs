@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class UpgradeUI : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> buttons;
+    //[SerializeField]
+    //private List<GameObject> buttons;
     // Start is called before the first frame update
 
     private void Start()
