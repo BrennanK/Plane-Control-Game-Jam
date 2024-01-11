@@ -82,9 +82,9 @@ public class Upgrade_Manager : MonoBehaviour
 
     void resetWeaponDamage()
     {
-        foreach(PlayerWeaponSettings weaponSetting in weapons)
+        for(int i=0;i< weapons.Count;i++)
         {
-            weaponSetting.ProjectilePrefab.GetComponent<ProjectileHitsEnemy>().resetToOriginalDamage();
+            weapons[i].ProjectilePrefab.GetComponent<ProjectileHitsEnemy>().resetToOriginalDamage();
         }
     }
 

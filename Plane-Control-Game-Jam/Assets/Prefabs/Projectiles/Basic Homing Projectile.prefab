@@ -206,8 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8066472d172ae041b749a111716d687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitMultipleEnemies: 0
+  _canHitSameEnemyMultipleTimes: 0
   _damageWithLowestPlayerStat: 1
   _originalDamage: 1
+  _knockbackScale: 1
 --- !u!114 &6693311442610606394
 MonoBehaviour:
   m_ObjectHideFlags: 0

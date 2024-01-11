@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.30692166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4782,7 +4782,7 @@ PrefabInstance:
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
       propertyPath: weapons.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
@@ -4800,7 +4800,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapons.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 6a55145f961d7c84a8662c4fe26d1cd0,
+      objectReference: {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3,
         type: 2}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
@@ -6603,6 +6603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2100252412488245005, guid: d85d35fdfb7278046909c75a525b2291,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100252412488245005, guid: d85d35fdfb7278046909c75a525b2291,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6644,7 +6649,7 @@ PrefabInstance:
     - target: {fileID: 2100252412488245005, guid: d85d35fdfb7278046909c75a525b2291,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 66.2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2100252412488245005, guid: d85d35fdfb7278046909c75a525b2291,
         type: 3}
@@ -9707,6 +9712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HorizontalAlignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669216440324705377, guid: e1eca56170dcfd345baa2b629276bac5,
+        type: 3}
+      propertyPath: _max
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1eca56170dcfd345baa2b629276bac5, type: 3}
