@@ -22,6 +22,9 @@ public class Game_Manager : MonoBehaviour
     [SerializeField]
     private int xpForNextLevelup;
 
+    private int xpForPriorLevelup = 0;
+    private int currentLevel = 1;
+
     private int currentXP;
 
     [SerializeField]
@@ -40,6 +43,7 @@ public class Game_Manager : MonoBehaviour
         score = 0;
         scoreText.text = "SCORE: " + score;
         currentXP = 0;
+        XPBar.Change(currentLevel, currentXP, xpForNextLevelup, xpForPriorLevelup);
         //expText.text = "XP: " + currentXP + "/" + xpForNextLevelup;
     }
 
@@ -69,10 +73,14 @@ public class Game_Manager : MonoBehaviour
 
         if(currentXP>=xpForNextLevelup)
         {
+            xpForPriorLevelup = xpForNextLevelup;
             xpForNextLevelup = (int)(xpMultiplierPerLevelUp * xpForNextLevelup);
+            currentLevel++;
             if(Upgrade_Manager.instance!=null)
             Upgrade_Manager.instance.activateUpgradeMenu();
         }
+
+        XPBar.Change(currentLevel, currentXP, xpForNextLevelup, xpForPriorLevelup);
 
        // expText.text = "XP: " + currentXP + "/" + xpForNextLevelup;
 

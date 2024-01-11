@@ -11,9 +11,11 @@ public class OneStat : MonoBehaviour
     [SerializeField] private int _min = 0;
     [SerializeField] private int _max = int.MaxValue;
 
-    public int Value { get; private set; }
-
     private List<IOnStatChange> _toInform = new();
+
+    public int Value { get; private set; }
+    public float FractionOfMax => ((float)Value) / _max;
+
 
     public void AddInform(IOnStatChange add, bool informImmediately = false) 
     { 
@@ -26,6 +28,12 @@ public class OneStat : MonoBehaviour
     private void Awake()
     {
         Value = _initial;
+    }
+
+    public void IncreaseMaxAndValue(int amount)
+    {
+        _max += amount;
+        Change(amount);
     }
 
     public void Change(int amount)
