@@ -32,6 +32,13 @@ public class Spawner : MonoBehaviour
     private int spawnIntervalInSeconds;
 
     [SerializeField]
+    private float timeInSecondsBeforeSpawnIncreasebyOne;
+
+    private float timeBeforeSpawnIncreases;
+
+    private int numberOfEnemiesToSpawnPerWave;
+
+    [SerializeField]
     private int spawnRadius;
 
     [SerializeField]
@@ -66,24 +73,34 @@ public class Spawner : MonoBehaviour
             Debug.Log("Player Found");
         }
         timesToMultiply = 0;
+        numberOfEnemiesToSpawnPerWave = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         gameTimeInSeconds += Time.deltaTime;
-
+        timeBeforeSpawnIncreases += Time.deltaTime;
         
         if(Text!=null)
         {
             Text.text = (int)gameTimeInSeconds + "";
         }
         
+        if(timeBeforeSpawnIncreases>=timeInSecondsBeforeSpawnIncreasebyOne)
+        {
+            timeBeforeSpawnIncreases = 0.0f;
+            numberOfEnemiesToSpawnPerWave++;
+        }
 
         if(((int)gameTimeInSeconds%spawnIntervalInSeconds)==0 && (int)gameTimeInSeconds>0)
         {
             gameTimeInSeconds = 0;
-            spawnAnEnemy();
+            for(int i=0;i<numberOfEnemiesToSpawnPerWave;i++)
+            {
+                spawnAnEnemy();
+            }
+            
         }
     }
 

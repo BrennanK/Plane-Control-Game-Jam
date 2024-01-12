@@ -49,8 +49,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95a863488c5a9464189f132eab14fc31, type: 2}
   - {fileID: 11400000, guid: 25be991ae71858849b63351cea0791d8, type: 2}
   - {fileID: 11400000, guid: 6a55145f961d7c84a8662c4fe26d1cd0, type: 2}
+  - {fileID: 11400000, guid: 56d8eb174f788bb4cb79e3b9923b8a4d, type: 2}
   healthUpgradeAmount: 5
   speedUpgradeAmount: 1
   weaponDamageUpgradeAmount: 1
   UpgradeMenu: {fileID: 0}
-  addWeaponButton: {fileID: 0}
+  addWeaponPanel: {fileID: 0}

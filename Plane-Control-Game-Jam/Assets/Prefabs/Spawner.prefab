@@ -49,12 +49,14 @@ MonoBehaviour:
   - {fileID: 4337413505482290443, guid: a4525088661169e4dae899ea9f551011, type: 3}
   - {fileID: 2003359289134644779, guid: 011eb34c6dd73d94c848d994065c624d, type: 3}
   FodderEnemyMin: 1
-  FodderEnemyMax: 4
-  MediumEnemyMin: 5
-  MediumEnemyMax: 7
-  HeavyEnemyMin: 8
-  HeavyEnemyMax: 10
+  FodderEnemyMax: 40
+  MediumEnemyMin: 50
+  MediumEnemyMax: 70
+  HeavyEnemyMin: 80
+  HeavyEnemyMax: 100
   Text: {fileID: 0}
   spawnIntervalInSeconds: 5
+  timeInSecondsBeforeSpawnIncreasebyOne: 11
   spawnRadius: 15
   healthMultiplier: 0
+  planeGround: {fileID: 0}

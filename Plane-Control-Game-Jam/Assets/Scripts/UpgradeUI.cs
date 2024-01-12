@@ -43,6 +43,10 @@ public class UpgradeUI : MonoBehaviour
         {
             panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[2];
         }
+        if (Upgrade_Manager.instance.getWeaponName() == "Melee")
+        {
+            panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[3];
+        }
 
     }
     public void HealthUpgrade()
