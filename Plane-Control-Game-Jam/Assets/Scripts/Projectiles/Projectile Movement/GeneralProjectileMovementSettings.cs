@@ -18,6 +18,8 @@ public class GeneralProjectileMovementSettings
         " E.g. if spawn in front of the player, can spawn some degrees around that direction.")]
     public float MaxRandomSpawnDirectionAngleOffset { get; private set; } = 0;
     [field: SerializeField]
+    public float SpawnDirectionAngleOffset { get; private set; } = 0;
+    [field: SerializeField]
     public float MinInitialVelocity { get; private set; } = 2;
     [field: SerializeField]
     public float MaxInitialVelocity { get; private set; } = 2;
