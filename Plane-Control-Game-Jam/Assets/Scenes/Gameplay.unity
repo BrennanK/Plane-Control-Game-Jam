@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.30692166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5194,6 +5194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
+      propertyPath: healthUpgradeAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
       propertyPath: weapons.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 25be991ae71858849b63351cea0791d8,
@@ -5220,6 +5225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: currentPlayerHealthValue
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
+      propertyPath: weaponDamageUpgradeAmount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526ba3233278e224aa77e484df23f6c7, type: 3}
@@ -6649,7 +6659,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 15
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6692,7 +6702,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 20000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -8577,6 +8587,11 @@ PrefabInstance:
       propertyPath: planeGround
       value: 
       objectReference: {fileID: 401862509}
+    - target: {fileID: 5375828842977933256, guid: c2234e12aef99db4cbf957ba9773b216,
+        type: 3}
+      propertyPath: healthMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5375828842977933257, guid: c2234e12aef99db4cbf957ba9773b216,
         type: 3}
       propertyPath: m_Name
@@ -9474,6 +9489,11 @@ PrefabInstance:
       propertyPath: planeGround
       value: 
       objectReference: {fileID: 401862509}
+    - target: {fileID: 5375828842977933256, guid: c2234e12aef99db4cbf957ba9773b216,
+        type: 3}
+      propertyPath: healthMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5375828842977933257, guid: c2234e12aef99db4cbf957ba9773b216,
         type: 3}
       propertyPath: m_Name
