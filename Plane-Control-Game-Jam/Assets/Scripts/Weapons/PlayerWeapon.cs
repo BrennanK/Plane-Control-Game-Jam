@@ -66,6 +66,10 @@ public class PlayerWeapon
         {
             explosion.Initialize(_player);
         }
+        else if (projectile.TryGetComponent(out MeleePositionInitializer melee))
+        {
+            melee.Initialize(_player, target);
+        }
         else
         {
             throw new System.Exception("Implement initialization for the projectile prefab.");

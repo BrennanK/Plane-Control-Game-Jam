@@ -208,8 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitMultipleEnemies: 0
   _canHitSameEnemyMultipleTimes: 0
-  _damageWithLowestPlayerStat: 1
-  _originalDamage: 1
+  _damageWithLowestPlayerStat: 10
+  _originalDamage: 10
   _knockbackScale: 1
   _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
     type: 3}

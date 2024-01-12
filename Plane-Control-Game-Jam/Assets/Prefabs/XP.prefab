@@ -113,4 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 6342045838642216395, guid: cf4fc81b358a21644940eeae5d6266e6,
     type: 3}
-  xpPerObject: 100
+  xpPerObject: 40
