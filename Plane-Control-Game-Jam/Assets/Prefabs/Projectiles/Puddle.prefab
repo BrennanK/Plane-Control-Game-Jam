@@ -176,8 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitMultipleEnemies: 1
   _canHitSameEnemyMultipleTimes: 1
-  _damageWithLowestPlayerStat: 1
-  _originalDamage: 1
+  _damageWithLowestPlayerStat: 5
+  _originalDamage: 5
   _knockbackScale: 0
   _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
     type: 3}
@@ -199,4 +199,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ceb5c53323a0fc4e97dad3d8b4656d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _seconds: 5
+  _seconds: 6
