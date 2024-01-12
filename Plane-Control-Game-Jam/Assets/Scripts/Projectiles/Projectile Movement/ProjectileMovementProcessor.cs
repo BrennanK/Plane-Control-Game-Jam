@@ -10,7 +10,9 @@ public static class ProjectileMovementProcessor
         , GeneralProjectileMovementSettings settings)
     {
         Vector3 posOffsetDirection = PositionOffsetDirection(player, target
-            , settings.MaxRandomSpawnDirectionAngleOffset, settings.SpawnInFrontOfPlayer);
+            , settings.MaxRandomSpawnDirectionAngleOffset
+            , settings.SpawnDirectionAngleOffset
+            , settings.SpawnInFrontOfPlayer);
 
         Vector3 pos = InitialPosition(player, settings.MinSpawnDistanceFromPlayer
             , settings.MaxSpawnDistanceFromPlayer, posOffsetDirection);
@@ -31,13 +33,13 @@ public static class ProjectileMovementProcessor
     }
 
     private static Vector3 PositionOffsetDirection(Transform source, Transform target
-       , float maxOffsetDegrees, bool spawnInFrontOfPlayer)
+       , float maxRandomOffsetDegrees, float extraOffsetDegrees, bool spawnInFrontOfPlayer)
     {
         Vector3 offsetDirectionBeforeRotate = DirectionToTargetInPlane(source.position, target);
         if (spawnInFrontOfPlayer)
             offsetDirectionBeforeRotate = DirectionInFront(source);
 
-        float offsetAngle = Random.Range(-maxOffsetDegrees, maxOffsetDegrees) * Mathf.Deg2Rad;
+        float offsetAngle = (extraOffsetDegrees + Random.Range(-maxRandomOffsetDegrees, maxRandomOffsetDegrees)) * Mathf.Deg2Rad;
         return RotateVectorOnPlane(offsetDirectionBeforeRotate, offsetAngle);
     }
 
