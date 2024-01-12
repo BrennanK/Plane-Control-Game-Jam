@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _toggle;
+    [SerializeField] private GameObject _toggleSoundPrefab;
 
     private bool _exited;
 
@@ -25,10 +26,12 @@ public class PauseMenu : MonoBehaviour
             SetPaused(!Paused);
     }
 
-    private void SetPaused(bool pause)
+    private void SetPaused(bool pause, bool playSound = true)
     {
         if (PlayerDeath.Dead)
             return;
+        if (playSound)
+            Instantiate(_toggleSoundPrefab);
         Paused = pause;
         Time.timeScale = pause ? 0 : 1;
         _toggle.SetActive(pause);
@@ -46,7 +49,7 @@ public class PauseMenu : MonoBehaviour
         // to do: save here (or maybe when you open the pause menu)
         
         SceneManager.LoadScene(0);
-        SetPaused(false);
+        SetPaused(false, playSound: false);
         _toggle.SetActive(true); // don't make it disappear for like a frame during the load
     }
 

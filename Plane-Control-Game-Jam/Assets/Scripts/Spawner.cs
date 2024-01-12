@@ -40,6 +40,12 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private int spawnRadius;
+    [SerializeField]
+    private float spawnMinDistanceFromPlayer = 5;
+    [SerializeField]
+    private float spawnMinDistanceFromWall = 3;
+    private Collider[] overlapSphereResults = new Collider[1]; // only need to know if any overlap so do length 1. 0 might work, dunno.
+    private int wallLayerAsLayerMask;
 
     [SerializeField]
     private float healthMultiplier;
@@ -53,6 +59,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
 
     private GameObject planeGround;
+
     
     class numRange
     {
@@ -66,6 +73,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        wallLayerAsLayerMask = LayerMask.GetMask("Wall");
+
         //Instantiate(enemy, gameObject.transform.position, gameObject.transform.rotation);
         playerCharacter=FindObjectOfType<PlayerMovement>().gameObject;
         if(playerCharacter!=null)
@@ -146,25 +155,45 @@ public class Spawner : MonoBehaviour
 
     public Vector3 decideWhereToSpawn()
     {
+        Vector3 result = Vector3.zero;
+        for (int i = 0; i < 100; i++)
+        {
 
-        float minX = planeGround.transform.position.x-planeGround.transform.localScale.x * 5;
-        float maxX = planeGround.transform.position.x + planeGround.transform.localScale.x * 5;
+            float minX = planeGround.transform.position.x - planeGround.transform.localScale.x * 5;
+            float maxX = planeGround.transform.position.x + planeGround.transform.localScale.x * 5;
 
-        float minZ = planeGround.transform.position.z - planeGround.transform.localScale.z * 5;
-        float maxZ = planeGround.transform.position.z + planeGround.transform.localScale.z * 5;
+            float minZ = planeGround.transform.position.z - planeGround.transform.localScale.z * 5;
+            float maxZ = planeGround.transform.position.z + planeGround.transform.localScale.z * 5;
 
 
 
-        Vector2 vec = Random.insideUnitCircle * spawnRadius;
-        //Debug.Log(vec);
-        Vector3 spawnOffset = new Vector3(vec.x,0,vec.y);
+            Vector2 vec = Random.insideUnitCircle * spawnRadius;
+            //Debug.Log(vec);
+            Vector3 spawnOffset = new Vector3(vec.x, 0, vec.y);
 
-        Vector3 result = playerCharacter.transform.position + spawnOffset;
+            result = playerCharacter.transform.position + spawnOffset;
 
-        result.x = Mathf.Clamp(result.x, minX, maxX);
-        result.z = Mathf.Clamp(result.z, minZ, maxZ);
+            result.x = Mathf.Clamp(result.x, minX, maxX);
+            result.z = Mathf.Clamp(result.z, minZ, maxZ);
+
+            if (AllowSpawnPosition(result))
+                break;
+
+            if (i == 99)
+                Debug.Log("likely issue with spawner");
+        }
 
         return result;
+    }
+
+    private bool AllowSpawnPosition(Vector3 pos)
+    {
+        float sqrDistanceFromPlayer = (pos - playerCharacter.transform.position).sqrMagnitude;
+        if (sqrDistanceFromPlayer < spawnMinDistanceFromPlayer * spawnMinDistanceFromPlayer)
+            return false;
+        int overlappingColliderCountForDefaultLayerGameobjects
+            = Physics.OverlapSphereNonAlloc(pos, spawnMinDistanceFromWall, overlapSphereResults, wallLayerAsLayerMask);
+        return overlappingColliderCountForDefaultLayerGameobjects == 0;
     }
 
     public void IncrementTimesToMultiply()

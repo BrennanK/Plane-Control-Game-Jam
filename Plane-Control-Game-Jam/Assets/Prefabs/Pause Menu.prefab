@@ -772,6 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toggle: {fileID: 3741189249236776653}
+  _toggleSoundPrefab: {fileID: 1089671760064948976, guid: 3adba06f4a28c214e8005cece64facae,
+    type: 3}
 --- !u!1 &3741189247575929225
 GameObject:
   m_ObjectHideFlags: 0
