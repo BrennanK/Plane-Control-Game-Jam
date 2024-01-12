@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208d34483ea87734996a9bbed3a25d5c, type: 3}
-  m_Name: Boomerang Weapon aim at enemy settings
+  m_Name: Explosion Weapon II
   m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 9169895418089587194, guid: 6f9385d8718c93641999150b689c72c4,
+  <ProjectilePrefab>k__BackingField: {fileID: 1111036903802577796, guid: 7b9855414579a454382c2c6395c001f9,
     type: 3}
-  <FireInterval>k__BackingField: 1.4
+  <FireInterval>k__BackingField: 2.5
   <MaxRandomAdditionToFireInterval>k__BackingField: 0
-  <EnemyDetectionRadius>k__BackingField: 8
-  <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: 50
-  <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 1
-  <RequireTarget>k__BackingField: 1
+  <EnemyDetectionRadius>k__BackingField: NaN
+  <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: NaN
+  <EnemyDetectionAngleOffset>k__BackingField: 0
+  <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 0
+  <RequireTarget>k__BackingField: 0

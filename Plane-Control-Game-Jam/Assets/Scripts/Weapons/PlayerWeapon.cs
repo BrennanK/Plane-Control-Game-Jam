@@ -93,6 +93,8 @@ public class PlayerWeapon
         {
             Vector3 offset3D = nextEnemy.transform.position - _player.position;
             Vector2 offset2D = new Vector2(offset3D.x, offset3D.z);
+            offset2D = ProjectileMovementProcessor.RotateVector(offset2D, _settings.EnemyDetectionAngleOffset * Mathf.Deg2Rad);
+
             float sqrDistance = offset2D.sqrMagnitude;
 
             if (sqrDistance > sqrDetectionRadiusSetting)
