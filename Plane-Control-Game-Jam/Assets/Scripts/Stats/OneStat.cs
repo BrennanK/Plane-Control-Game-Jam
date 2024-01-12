@@ -15,7 +15,7 @@ public class OneStat : MonoBehaviour
 
     public int Value { get; private set; }
     public float FractionOfMax => ((float)Value) / _max;
-
+    public int Max => _max;
 
     public void AddInform(IOnStatChange add, bool informImmediately = false) 
     { 
