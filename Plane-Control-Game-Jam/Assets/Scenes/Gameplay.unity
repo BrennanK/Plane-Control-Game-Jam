@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.30692166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662110}
   - component: {fileID: 4662109}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3241,7 +3241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509730708}
   - component: {fileID: 509730707}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Border (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7608,7 +7608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455625633}
   - component: {fileID: 1455625632}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Border (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10066,7 +10066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084466075}
   - component: {fileID: 2084466074}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Border (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
