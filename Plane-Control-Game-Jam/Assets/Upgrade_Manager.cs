@@ -193,28 +193,41 @@ public class Upgrade_Manager : MonoBehaviour
     public void addWeapon()
     {
         player.GetComponentInChildren<PlayerWeapons>().AddWeapon(chosenWeapon);
+        for (int i = 0; i < attachedWeapons.Count; i++)
+        {
+            Debug.Log(attachedWeapons[i].getSettings());
+        }
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
         deactivateUpgradeMenu();
     }
 
     public WeaponLevel checkForUpgradableWeapon()
     {
         attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
-
+        levelsOfCurrentWeapons.Clear();
         for(int i=0;i<attachedWeapons.Count;i++)
         {
-            Debug.Log("This is levels: "+attachedWeapons[i].getSettings().levelAssociated);
+            //Debug.Log("This is levels: "+attachedWeapons[i].getSettings().levelAssociated);
+            
             if(attachedWeapons[i].getSettings().levelAssociated!=null)
             {
                 levelsOfCurrentWeapons.Add(attachedWeapons[i].getSettings().levelAssociated);
             }
-            else 
-            {
-                return null;
-            }
+           
             //Blah
         }
 
-        if(levelsOfCurrentWeapons.Count==0)
+        foreach (WeaponLevel lv in levelsOfCurrentWeapons)
+        {
+            Debug.Log("This is lv: "+lv);
+        }
+
+        for (int i = 0; i < attachedWeapons.Count; i++)
+        {
+            //Debug.Log(attachedWeapons[i].getSettings());
+        }
+
+        if (levelsOfCurrentWeapons.Count==0)
         {
             return null;
         }
@@ -223,12 +236,12 @@ public class Upgrade_Manager : MonoBehaviour
 
         foreach(WeaponLevel lv in levelsOfCurrentWeapons)
         {
-            Debug.Log("This is lv: "+lv);
+           // Debug.Log("This is lv: "+lv);
             if(index==0)
             {
                 oldWeapon = lv;
                 upgradableWeapon = pairings.returnUpgradedWeapon(lv);
-                Debug.Log(upgradableWeapon);
+               Debug.Log("This the match: "+upgradableWeapon);
                 return upgradableWeapon;
             }
             else

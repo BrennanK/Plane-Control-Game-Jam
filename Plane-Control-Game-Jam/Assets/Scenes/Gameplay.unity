@@ -10238,7 +10238,7 @@ MonoBehaviour:
   timerText: {fileID: 245480426}
   scoreText: {fileID: 464027608}
   expText: {fileID: 0}
-  xpForNextLevelup: 0
+  xpForNextLevelup: 100
   xpMultiplierPerLevelUp: 2.5
 --- !u!4 &2124580492
 Transform:

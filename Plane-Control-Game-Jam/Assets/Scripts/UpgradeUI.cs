@@ -52,6 +52,7 @@ public class UpgradeUI : MonoBehaviour
         if(level!=null)
         {
             panel[4].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getupgradeLevelName();
+            panel[4].SetActive(true);
         }
         else
         {
