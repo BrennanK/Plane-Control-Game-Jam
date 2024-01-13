@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157909606506401622}
   - component: {fileID: 157909606506401623}
+  - component: {fileID: 2852692740602785561}
   m_Layer: 0
   m_Name: Upgrade System Manager
   m_TagString: Untagged
@@ -55,3 +56,36 @@ MonoBehaviour:
   weaponDamageUpgradeAmount: 1
   UpgradeMenu: {fileID: 0}
   addWeaponPanel: {fileID: 0}
+--- !u!114 &2852692740602785561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157909606506401616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ecc7ab8b173ab4ca610111db3f39bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeableWeapons:
+  - baseVer: {fileID: 11400000, guid: b8e06e66b61861e4793334b9b07aa966, type: 2}
+    newVer: {fileID: 11400000, guid: 3210fb8c20861864399b57b95a586ca8, type: 2}
+  - baseVer: {fileID: 11400000, guid: 028301b6f6be4b94fbb6d4cc8199cd1d, type: 2}
+    newVer: {fileID: 11400000, guid: 9ee4206d7340a984c89a6b1332f0c417, type: 2}
+  - baseVer: {fileID: 11400000, guid: 154d6da5ccad0594aacc9c094dd91ecd, type: 2}
+    newVer: {fileID: 11400000, guid: e6a682914812cea4bb68b8704a3f90f1, type: 2}
+  - baseVer: {fileID: 11400000, guid: 376bd7b2f0d656b4784d975551043ed3, type: 2}
+    newVer: {fileID: 11400000, guid: c83e8b397cc50b14c94427a2c73dac67, type: 2}
+  - baseVer: {fileID: 11400000, guid: 34f159ac07ca9b04c80a8b7409a1be04, type: 2}
+    newVer: {fileID: 11400000, guid: 1353803a811f2a1428e6c05d707bcd5b, type: 2}
+  - baseVer: {fileID: 11400000, guid: 3210fb8c20861864399b57b95a586ca8, type: 2}
+    newVer: {fileID: 11400000, guid: 7d919dc7e730efe44a7488a1d58c5bde, type: 2}
+  - baseVer: {fileID: 11400000, guid: 9ee4206d7340a984c89a6b1332f0c417, type: 2}
+    newVer: {fileID: 11400000, guid: 74c0890e261548642af3ba45edcb991d, type: 2}
+  - baseVer: {fileID: 11400000, guid: e6a682914812cea4bb68b8704a3f90f1, type: 2}
+    newVer: {fileID: 11400000, guid: 2885e965ceb9c1543a10e053fcbe7dbe, type: 2}
+  - baseVer: {fileID: 11400000, guid: c83e8b397cc50b14c94427a2c73dac67, type: 2}
+    newVer: {fileID: 11400000, guid: d8dbc82e635ff314893622d157a7c4b0, type: 2}
+  - baseVer: {fileID: 11400000, guid: 1353803a811f2a1428e6c05d707bcd5b, type: 2}
+    newVer: {fileID: 11400000, guid: 79ec3cbbae268bd45888eecbfc95fc64, type: 2}

@@ -21,3 +21,5 @@ MonoBehaviour:
   <EnemyDetectionAngleOffset>k__BackingField: 60
   <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 1
   <RequireTarget>k__BackingField: 1
+  <levelAssociated>k__BackingField: {fileID: 11400000, guid: d8dbc82e635ff314893622d157a7c4b0,
+    type: 2}

@@ -26,9 +26,13 @@ public class Upgrade_Manager : MonoBehaviour
     [SerializeField]
     private List<PlayerWeaponSettings> weapons;
 
+    private WeaponUpgradePair pairings;
+
     private List<PlayerWeaponSettings> weaponsToAttach;
 
     private List<PlayerWeapon> attachedWeapons;
+
+    private HashSet<WeaponLevel> levelsOfCurrentWeapons= new HashSet<WeaponLevel>();
 
     // [SerializeField]
     // private TMP_Text currentWeaponDamage;
@@ -50,6 +54,8 @@ public class Upgrade_Manager : MonoBehaviour
 
     private PlayerWeaponSettings chosenWeapon;
 
+    private WeaponLevel upgradableWeapon;
+    private WeaponLevel oldWeapon;
     public int getHealthUpgrade()
     {
         return healthUpgradeAmount;
@@ -96,7 +102,9 @@ public class Upgrade_Manager : MonoBehaviour
 
         attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
 
-       // curNumWeapons.text = "Number of Weapons on Player: " + attachedWeapons.Count;
+        // curNumWeapons.text = "Number of Weapons on Player: " + attachedWeapons.Count;
+
+        pairings = gameObject.GetComponent<WeaponUpgradePair>();
 
         resetWeaponDamage();
     }
@@ -185,7 +193,94 @@ public class Upgrade_Manager : MonoBehaviour
     public void addWeapon()
     {
         player.GetComponentInChildren<PlayerWeapons>().AddWeapon(chosenWeapon);
+        for (int i = 0; i < attachedWeapons.Count; i++)
+        {
+            Debug.Log(attachedWeapons[i].getSettings());
+        }
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
         deactivateUpgradeMenu();
+    }
+
+    public WeaponLevel checkForUpgradableWeapon()
+    {
+        attachedWeapons = player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
+        levelsOfCurrentWeapons.Clear();
+        for(int i=0;i<attachedWeapons.Count;i++)
+        {
+            //Debug.Log("This is levels: "+attachedWeapons[i].getSettings().levelAssociated);
+            
+            if(attachedWeapons[i].getSettings().levelAssociated!=null)
+            {
+                levelsOfCurrentWeapons.Add(attachedWeapons[i].getSettings().levelAssociated);
+            }
+           
+            //Blah
+        }
+
+        foreach (WeaponLevel lv in levelsOfCurrentWeapons)
+        {
+            Debug.Log("This is lv: "+lv);
+        }
+
+        for (int i = 0; i < attachedWeapons.Count; i++)
+        {
+            //Debug.Log(attachedWeapons[i].getSettings());
+        }
+
+        if (levelsOfCurrentWeapons.Count==0)
+        {
+            return null;
+        }
+
+        int index = Random.Range(0, levelsOfCurrentWeapons.Count);
+
+        foreach(WeaponLevel lv in levelsOfCurrentWeapons)
+        {
+           // Debug.Log("This is lv: "+lv);
+            if(index==0)
+            {
+                oldWeapon = lv;
+                upgradableWeapon = pairings.returnUpgradedWeapon(lv);
+               Debug.Log("This the match: "+upgradableWeapon);
+                return upgradableWeapon;
+            }
+            else
+            {
+                index--;
+            }
+        }
+
+        return null;
+    }
+
+    public void removeAndAddWeapons()
+    {
+        for(int i=0;i<oldWeapon.weaponsInLevel.Count;i++)
+        {
+            player.GetComponentInChildren<PlayerWeapons>().removeWeaponFromPlayer(oldWeapon.weaponsInLevel[i]);
+        }
+
+        for (int i = 0; i < upgradableWeapon.weaponsInLevel.Count; i++)
+        {
+            
+            player.GetComponentInChildren<PlayerWeapons>().AddWeapon(upgradableWeapon.weaponsInLevel[i]);
+        }
+       /*
+        attachedWeapons= player.GetComponentInChildren<PlayerWeapons>().getCurrentWeaponsOnPlayer();
+        for (int i=0;i<attachedWeapons.Count;i++)
+        {
+            if(!weaponsToAttach.Contains(attachedWeapons[i].getSettings()))
+            {
+                weaponsToAttach.Add(attachedWeapons[i].getSettings());
+            }
+        }
+       */
+        deactivateUpgradeMenu();
+    }
+
+    public string getupgradeLevelName()
+    {
+        return upgradableWeapon.name;
     }
 
     public void activateUpgradeMenu()

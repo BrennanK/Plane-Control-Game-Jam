@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129bebdc5d1e0014bbb5e54890a8713c, type: 3}
+  m_Name: Bommerang Level 3
+  m_EditorClassIdentifier: 
+  weaponsInLevel:
+  - {fileID: 11400000, guid: 1a0140903f0f9fd4c88987ca84a21bdb, type: 2}
+  - {fileID: 11400000, guid: ad548753a68843f43882c7f1096db0c1, type: 2}
+  - {fileID: 11400000, guid: cbe82395a0127a0468833860c43a5ac3, type: 2}
