@@ -56,7 +56,10 @@ MonoBehaviour:
   HeavyEnemyMax: 100
   Text: {fileID: 0}
   spawnIntervalInSeconds: 5
+  spawnTimeStart: 3.5
   timeInSecondsBeforeSpawnIncreasebyOne: 11
-  spawnRadius: 15
+  spawnRadius: 30
+  spawnMinDistanceFromPlayer: 10
+  spawnMinDistanceFromWall: 3
   healthMultiplier: 0
   planeGround: {fileID: 0}
