@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ba66d3d42ff47643bf79598c2620fbf, type: 2}
   - {fileID: 11400000, guid: a38d2b01abdde9b4eaa57a71dbf31610, type: 2}
   - {fileID: 11400000, guid: 7c0491448bf0cbd48b7dc4383d6bb1f3, type: 2}
+  displayName: Projectile

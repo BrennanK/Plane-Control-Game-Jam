@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponsInLevel:
   - {fileID: 11400000, guid: 3fccb3036f6c09142a31650a9bbd4b94, type: 2}
   - {fileID: 11400000, guid: 4cb31b1b5de7e46478af6895da47e21a, type: 2}
+  displayName: Melee
