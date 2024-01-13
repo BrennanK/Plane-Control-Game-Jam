@@ -86,8 +86,18 @@ public class PlayerMovement : MonoBehaviour
             direction += Vector2.left;
         if (Input.GetKey(KeyCode.D))
             direction += Vector2.right;
-       // direction.x += Input.GetAxis("JoystickHorizontal");
-       // direction.y += Input.GetAxis("JoystickVertical");
+
+        if (Input.GetKey(KeyCode.UpArrow))
+            direction += Vector2.up;
+        if (Input.GetKey(KeyCode.DownArrow))
+            direction += Vector2.down;
+        if (Input.GetKey(KeyCode.LeftArrow))
+            direction += Vector2.left;
+        if (Input.GetKey(KeyCode.RightArrow))
+            direction += Vector2.right;
+
+        // direction.x += Input.GetAxis("JoystickHorizontal");
+        // direction.y += Input.GetAxis("JoystickVertical");
         return direction.normalized;
     }
 
