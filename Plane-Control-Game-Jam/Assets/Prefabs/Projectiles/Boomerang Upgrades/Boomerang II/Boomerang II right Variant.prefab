@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 4226958802494186682, guid: 6f9385d8718c93641999150b689c72c4,
         type: 3}
       propertyPath: _directionOffsetAngleDegrees
-      value: -50
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 9169895418089587194, guid: 6f9385d8718c93641999150b689c72c4,
         type: 3}
