@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsInLevel:
   - {fileID: 11400000, guid: 56d8eb174f788bb4cb79e3b9923b8a4d, type: 2}
+  displayName: Melee

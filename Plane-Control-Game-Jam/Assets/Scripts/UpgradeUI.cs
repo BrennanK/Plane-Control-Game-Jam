@@ -12,6 +12,12 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField]
     private List<Sprite> weaponIcons;
 
+    [SerializeField]
+    private TMP_Text newWeaponText;
+
+    [SerializeField]
+    private TMP_Text weaponUpgradeText;
+
     private void Start()
     {
         //GameObject newButton = Instantiate(buttons[0],buttons[1].transform);
@@ -29,8 +35,8 @@ public class UpgradeUI : MonoBehaviour
 
     private void OnEnable()
     {
-        panel[3].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getWeaponName();
-
+        newWeaponText.text ="Add "+ Upgrade_Manager.instance.getWeaponName();
+        /*
         if(Upgrade_Manager.instance.getWeaponName()=="Boomerang")
         {
             panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[0];
@@ -47,11 +53,12 @@ public class UpgradeUI : MonoBehaviour
         {
             panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[3];
         }
-
+        */
         WeaponLevel level = Upgrade_Manager.instance.checkForUpgradableWeapon();
         if(level!=null)
         {
-            panel[4].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getupgradeLevelName();
+            // panel[4].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getupgradeLevelName();
+            weaponUpgradeText.text = "Upgrade: " + level.displayName;
             panel[4].SetActive(true);
         }
         else

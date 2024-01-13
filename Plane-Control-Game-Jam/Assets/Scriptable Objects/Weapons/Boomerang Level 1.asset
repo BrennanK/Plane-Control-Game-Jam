@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsInLevel:
   - {fileID: 11400000, guid: 95a863488c5a9464189f132eab14fc31, type: 2}
+  displayName: Boomerang

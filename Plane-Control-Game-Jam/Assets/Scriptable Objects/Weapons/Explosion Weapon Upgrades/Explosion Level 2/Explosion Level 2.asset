@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsInLevel:
   - {fileID: 11400000, guid: 6a5bc0be5a2fe9c4a8ef5ce452dd255b, type: 2}
+  displayName: Explosion
