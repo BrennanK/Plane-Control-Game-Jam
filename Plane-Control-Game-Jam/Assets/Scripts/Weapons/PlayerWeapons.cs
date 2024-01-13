@@ -34,4 +34,15 @@ public class PlayerWeapons : MonoBehaviour
     {
         return _weapons;
     }
+
+    public void removeWeaponFromPlayer(PlayerWeaponSettings weaponToRemove)
+    {
+       for(int i=0;i<_weapons.Count;i++)
+        {
+            if(_weapons[i].getSettings().ProjectilePrefab==weaponToRemove.ProjectilePrefab)
+            {
+                _weapons.RemoveAt(i);
+            }
+        }
+    }
 }

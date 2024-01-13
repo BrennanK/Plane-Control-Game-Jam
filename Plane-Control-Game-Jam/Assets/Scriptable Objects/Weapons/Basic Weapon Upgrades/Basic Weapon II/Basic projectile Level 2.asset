@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129bebdc5d1e0014bbb5e54890a8713c, type: 3}
+  m_Name: Basic projectile Level 2
+  m_EditorClassIdentifier: 
+  weaponsInLevel:
+  - {fileID: 11400000, guid: 08b2827c1489b734e9fd87de40d65a17, type: 2}
+  - {fileID: 11400000, guid: a0d52de2833e61045a0e263d369475b7, type: 2}

@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208d34483ea87734996a9bbed3a25d5c, type: 3}
-  m_Name: Explosion Weapon III
+  m_Name: Puddle Weapon II
   m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 1111036903802577796, guid: 7b9855414579a454382c2c6395c001f9,
+  <ProjectilePrefab>k__BackingField: {fileID: 3690406583293733772, guid: 3be5c519a6f83aa4d840772234166e9e,
     type: 3}
-  <FireInterval>k__BackingField: 2
+  <FireInterval>k__BackingField: 5
   <MaxRandomAdditionToFireInterval>k__BackingField: 0
   <EnemyDetectionRadius>k__BackingField: NaN
   <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: NaN
   <EnemyDetectionAngleOffset>k__BackingField: 0
   <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 0
   <RequireTarget>k__BackingField: 0
+  <levelAssociated>k__BackingField: {fileID: 11400000, guid: 1353803a811f2a1428e6c05d707bcd5b,
+    type: 2}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.30692166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5266,21 +5266,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3,
+        type: 2}
+    - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
       propertyPath: weapons.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 25be991ae71858849b63351cea0791d8,
+      objectReference: {fileID: 11400000, guid: 95a863488c5a9464189f132eab14fc31,
         type: 2}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
       propertyPath: weapons.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 6a55145f961d7c84a8662c4fe26d1cd0,
+      objectReference: {fileID: 11400000, guid: 25be991ae71858849b63351cea0791d8,
         type: 2}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
       propertyPath: weapons.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 62e440c7475f4974eb8dc6f6663a9cb3,
+      objectReference: {fileID: 11400000, guid: 6a55145f961d7c84a8662c4fe26d1cd0,
         type: 2}
     - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
         type: 3}
@@ -5297,6 +5303,21 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponDamageUpgradeAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 157909606506401623, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
+      propertyPath: upgradeAbleWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852692740602785561, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
+      propertyPath: originalWeapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852692740602785561, guid: 526ba3233278e224aa77e484df23f6c7,
+        type: 3}
+      propertyPath: upgradeableWeapons.Array.size
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526ba3233278e224aa77e484df23f6c7, type: 3}
@@ -10217,7 +10238,7 @@ MonoBehaviour:
   timerText: {fileID: 245480426}
   scoreText: {fileID: 464027608}
   expText: {fileID: 0}
-  xpForNextLevelup: 100
+  xpForNextLevelup: 0
   xpMultiplierPerLevelUp: 2.5
 --- !u!4 &2124580492
 Transform:

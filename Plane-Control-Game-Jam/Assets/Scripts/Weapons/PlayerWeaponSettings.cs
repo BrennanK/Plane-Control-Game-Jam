@@ -16,4 +16,6 @@ public class PlayerWeaponSettings : ScriptableObject
     [field: SerializeField] public float EnemyDetectionAngleOffset { get; private set; } = 0;
     [field: SerializeField] public bool WaitForEnemyBeforeFinishFireInterval { get; private set; } = true;
     [field: SerializeField] public bool RequireTarget { get; private set; } = true;
+
+    [field: SerializeField] public WeaponLevel levelAssociated { get; private set; }
 }

@@ -48,6 +48,16 @@ public class UpgradeUI : MonoBehaviour
             panel[3].transform.GetChild(2).gameObject.GetComponent<Image>().sprite = weaponIcons[3];
         }
 
+        WeaponLevel level = Upgrade_Manager.instance.checkForUpgradableWeapon();
+        if(level!=null)
+        {
+            panel[4].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Upgrade_Manager.instance.getupgradeLevelName();
+        }
+        else
+        {
+            panel[4].gameObject.SetActive(false);
+        }
+
     }
     public void HealthUpgrade()
     {
@@ -67,5 +77,10 @@ public class UpgradeUI : MonoBehaviour
     public void addRandomWeapon()
     {
         Upgrade_Manager.instance.addWeapon();
+    }
+
+    public void upgradeWeaponLevel()
+    {
+        Upgrade_Manager.instance.removeAndAddWeapons();
     }
 }

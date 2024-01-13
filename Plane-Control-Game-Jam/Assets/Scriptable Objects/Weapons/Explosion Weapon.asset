@@ -18,5 +18,8 @@ MonoBehaviour:
   <MaxRandomAdditionToFireInterval>k__BackingField: 0
   <EnemyDetectionRadius>k__BackingField: NaN
   <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: NaN
+  <EnemyDetectionAngleOffset>k__BackingField: 0
   <WaitForEnemyBeforeFinishFireInterval>k__BackingField: 0
   <RequireTarget>k__BackingField: 0
+  <levelAssociated>k__BackingField: {fileID: 11400000, guid: 154d6da5ccad0594aacc9c094dd91ecd,
+    type: 2}
