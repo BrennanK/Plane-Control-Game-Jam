@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc94b40231cfdc40b6fd8a98e69a7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnPositionOffset: 0
 --- !u!114 &7025481522046539464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ MonoBehaviour:
   _canHitSameEnemyMultipleTimes: 0
   _damageWithLowestPlayerStat: 10
   _originalDamage: 10
-  _knockbackScale: 1
+  _knockbackScale: 3
   _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
     type: 3}
   _minParticleInstancesCount: 1

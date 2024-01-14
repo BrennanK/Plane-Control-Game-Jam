@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponsInLevel:
   - {fileID: 11400000, guid: 08b2827c1489b734e9fd87de40d65a17, type: 2}
   - {fileID: 11400000, guid: a0d52de2833e61045a0e263d369475b7, type: 2}
+  displayName: Projectile

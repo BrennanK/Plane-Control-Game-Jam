@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 1958450442292331684, guid: 71c96f64e75bbd24e9b71b61a56973dc,
         type: 3}
       propertyPath: _originalDamage
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1958450442292331684, guid: 71c96f64e75bbd24e9b71b61a56973dc,
         type: 3}
       propertyPath: _damageWithLowestPlayerStat
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5162967964568039952, guid: 71c96f64e75bbd24e9b71b61a56973dc,
         type: 3}

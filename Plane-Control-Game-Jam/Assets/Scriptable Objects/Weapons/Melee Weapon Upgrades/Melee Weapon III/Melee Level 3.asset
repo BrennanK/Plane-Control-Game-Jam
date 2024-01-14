@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5cb2f311f00c1d4f82b61721299d6a1, type: 2}
   - {fileID: 11400000, guid: d407cff062d388f4ea45cfa325021e3f, type: 2}
   - {fileID: 11400000, guid: b52c384b15b9bc5439418b748ae7de06, type: 2}
+  displayName: Melee
