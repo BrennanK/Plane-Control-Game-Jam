@@ -246,14 +246,23 @@ MonoBehaviour:
   _damageWithLowestPlayerStat: 8
   _originalDamage: 8
   _knockbackScale: 0.5
-  _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
-    type: 3}
-  _minParticleInstancesCount: 1
-  _maxParticleInstancesCount: 1
-  _particlesSpawnRadius: 0
-  _randomizeParticleRotation: 1
-  _spawnParticlesAtEnemyNotProjectile: 0
-  _includeOneWithNoSpawnRadius: 1
+  _particles:
+  - _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
+      type: 3}
+    _minParticleInstancesCount: 1
+    _maxParticleInstancesCount: 1
+    _particlesSpawnRadius: 0
+    _randomizeParticleRotation: 1
+    _spawnParticlesAtEnemyNotProjectile: 0
+    _includeOneWithNoSpawnRadius: 1
+  - _particleEffects: {fileID: 3810950511949051014, guid: 784660d52b20aa34b9ac9edd2b2597ba,
+      type: 3}
+    _minParticleInstancesCount: 2
+    _maxParticleInstancesCount: 2
+    _particlesSpawnRadius: 2
+    _randomizeParticleRotation: 1
+    _spawnParticlesAtEnemyNotProjectile: 1
+    _includeOneWithNoSpawnRadius: 0
 --- !u!114 &5403198412230093321
 MonoBehaviour:
   m_ObjectHideFlags: 0
