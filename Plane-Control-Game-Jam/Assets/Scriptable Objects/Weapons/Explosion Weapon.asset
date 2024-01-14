@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ProjectilePrefab>k__BackingField: {fileID: 1478536610107749531, guid: 7fae28747e6eee74f929d73e210082a0,
     type: 3}
-  <FireInterval>k__BackingField: 3
+  <FireInterval>k__BackingField: 2.5
   <MaxRandomAdditionToFireInterval>k__BackingField: 0
   <EnemyDetectionRadius>k__BackingField: NaN
   <EnemyDetectionMaxDegreesFromLookDirection>k__BackingField: NaN
