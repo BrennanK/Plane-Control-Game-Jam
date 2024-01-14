@@ -32,11 +32,14 @@ public class Spawner : MonoBehaviour
     private int spawnIntervalInSeconds;
 
     [SerializeField]
+    private float spawnTimeStart = 5;
+
+    [SerializeField]
     private float timeInSecondsBeforeSpawnIncreasebyOne;
 
     private float timeBeforeSpawnIncreases;
 
-    private int numberOfEnemiesToSpawnPerWave;
+    private float numberOfEnemiesToSpawnPerWave;
 
     [SerializeField]
     private int spawnRadius;
@@ -46,6 +49,9 @@ public class Spawner : MonoBehaviour
     private float spawnMinDistanceFromWall = 3;
     private Collider[] overlapSphereResults = new Collider[1]; // only need to know if any overlap so do length 1. 0 might work, dunno.
     private int wallLayerAsLayerMask;
+
+    [SerializeField]
+    private float extraSpawnsEachWave = .5f;
 
     [SerializeField]
     private float healthMultiplier;
@@ -73,6 +79,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameTimeInSeconds = spawnIntervalInSeconds - spawnTimeStart;
         wallLayerAsLayerMask = LayerMask.GetMask("Wall");
 
         //Instantiate(enemy, gameObject.transform.position, gameObject.transform.rotation);
@@ -99,7 +106,7 @@ public class Spawner : MonoBehaviour
         if(timeBeforeSpawnIncreases>=timeInSecondsBeforeSpawnIncreasebyOne)
         {
             timeBeforeSpawnIncreases = 0.0f;
-            numberOfEnemiesToSpawnPerWave++;
+            numberOfEnemiesToSpawnPerWave += extraSpawnsEachWave;
         }
 
         if(((int)gameTimeInSeconds%spawnIntervalInSeconds)==0 && (int)gameTimeInSeconds>0)

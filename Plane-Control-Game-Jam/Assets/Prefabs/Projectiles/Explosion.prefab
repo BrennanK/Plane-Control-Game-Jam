@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minDistanceFromPlayer: 1
-  _maxDistanceFromPlayer: 5
+  _maxDistanceFromPlayer: 7
 --- !u!114 &5192524449586856492
 MonoBehaviour:
   m_ObjectHideFlags: 0

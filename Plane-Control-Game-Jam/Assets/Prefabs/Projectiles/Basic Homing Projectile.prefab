@@ -188,6 +188,7 @@ MonoBehaviour:
     <MaxSpawnDistanceFromPlayer>k__BackingField: 1
     <SpawnInFrontOfPlayer>k__BackingField: 1
     <MaxRandomSpawnDirectionAngleOffset>k__BackingField: 0
+    <SpawnDirectionAngleOffset>k__BackingField: 0
     <MinInitialVelocity>k__BackingField: 5
     <MaxInitialVelocity>k__BackingField: 5
     <InitialVelocityIsTowardsEnemyNotAwayFromPlayer>k__BackingField: 0
@@ -208,8 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitMultipleEnemies: 0
   _canHitSameEnemyMultipleTimes: 0
-  _damageWithLowestPlayerStat: 10
-  _originalDamage: 10
+  _damageWithLowestPlayerStat: 12
+  _originalDamage: 12
   _knockbackScale: 1
   _particleEffects: {fileID: 6952030750392185766, guid: 2dd019013dc0a4426a60285b1a32a220,
     type: 3}

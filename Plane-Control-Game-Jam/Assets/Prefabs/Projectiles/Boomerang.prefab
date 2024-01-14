@@ -285,7 +285,7 @@ MonoBehaviour:
   _speed: 15
   _ellipseLength: 7
   _ellipseWidth: 2
-  _logExistenceDuration: 1
+  _logExistenceDuration: 0
 --- !u!1001 &372283728105405128
 PrefabInstance:
   m_ObjectHideFlags: 0
