@@ -30,9 +30,7 @@ public class ProjectileHitsEnemy : MonoBehaviour
         if (!_hitMultipleEnemies && _alreadyHit.Count > 0)
             return;
 
-        // to do: get an enemy health script or something, and deal damage instead.
-        EnemyAI ai = other.GetComponent<EnemyAI>();
-        if (ai == null)
+        if (!EnemyHitbox.TryGetAI(other, out EnemyAI ai))
             return;
         if (!_canHitSameEnemyMultipleTimes && _alreadyHit.Contains(ai))
             return;

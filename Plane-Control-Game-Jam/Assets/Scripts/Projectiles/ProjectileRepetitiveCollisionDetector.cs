@@ -26,8 +26,7 @@ public class ProjectileRepetitiveCollisionDetector : MonoBehaviour
 
     private void OnTrigger(Collider other)
     {
-        // for performance, could do a dictionary from collider to EnemyAI
-        if (!other.TryGetComponent(out EnemyAI ai))
+        if (!EnemyHitbox.TryGetAI(other, out EnemyAI ai))
             return;
 
         if (!_nextHitTimes.ContainsKey(ai))

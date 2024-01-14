@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1071134201210531929, guid: a4525088661169e4dae899ea9f551011,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337413505482290436, guid: a4525088661169e4dae899ea9f551011,
         type: 3}
       propertyPath: m_Mesh
@@ -71,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 4337413505482290443, guid: a4525088661169e4dae899ea9f551011,
         type: 3}
       propertyPath: m_Name
-      value: Medium Enemy Alt
+      value: Medium Enemy Alt Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4525088661169e4dae899ea9f551011, type: 3}
